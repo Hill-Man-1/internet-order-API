@@ -12,10 +12,10 @@ const app = express();
 db()
 
 app.use(express.json())
-app.use(rootRoute)
-// app.use(router);
-
 middleWares(app)
+app.use(rootRoute)
+// app.use(router); 
+
 
 const PORT = process.env.PORT;
 app.listen(PORT, ()=> {

@@ -1,4 +1,4 @@
-class responseError extends Error {
+class errorHandler extends Error {
     constructor(status, success, message) {
         super(message);
         this.success = success;
