@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id       BigInt   @id @default(autoincrement())
+  username String
+  password String
+  role     Role     @default(CUSTOMER)
+  Teknisi  Teknisi?
+  Orders   Order[]
+}
+
+model Teknisi {
+  id             BigInt  @id @default(autoincrement())
+  nama           String
+  password       String
+  nip            String
+  no_telp        String
+  total_handling Int
+  user_id        BigInt  @unique
+  User           User    @relation(fields: [user_id], references: [id])
+  Order          Order[]
+}
+
+model Order {
+  id              Int      @id @default(autoincrement())
+  nama            String
+  email           String
+  upload_identity String
+  kota            String
+  kecamatan       String
+  jalan           String
+  reject_reason   String?
+  user_id         BigInt
+  package_id      Int
+  status_id       Int      @default(2)
+  teknisi_id      BigInt?
+  User            User     @relation(fields: [user_id], references: [id])
+  Package         Package  @relation(fields: [package_id], references: [id])
+  Status          Status   @relation(fields: [status_id], references: [id])
+  Teknisi         Teknisi? @relation(fields: [teknisi_id], references: [id])
+}
+
+model Package {
+  id        Int     @id @default(autoincrement())
+  nama      String
+  harga     String
+  deskripsi String
+  Order     Order[]
+}
+
+model Status {
+  id    Int     @id @default(autoincrement())
+  name  String
+  Order Order[]
+}
+
+enum Role {
+  CUSTOMER
+  TEKNISI
+  ADMIN
+}
