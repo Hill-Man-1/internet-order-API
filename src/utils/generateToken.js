@@ -2,12 +2,13 @@ import jwt from 'jsonwebtoken';
 import JWT_KEY from '../config/jwt/jwt.js';
 
 const generateToken = (user) => {
-    const payload = {
+    return jwt.sign({
         id: user.id,
         username: user.username,
         role: user.role
-    };
-    return jwt.sign(payload, JWT_KEY, { expiresIn: '1h' });
-};
+    }, JWT_KEY, {
+        expiresIn: '1h'
+    });
+}
 
-export default generateToken
+export default generateToken;
