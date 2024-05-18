@@ -3,7 +3,7 @@ CREATE TYPE "Role" AS ENUM ('CUSTOMER', 'TEKNISI', 'ADMIN');
 
 -- CreateTable
 CREATE TABLE "User" (
-    "id" BIGSERIAL NOT NULL,
+    "id" SERIAL NOT NULL,
     "username" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "role" "Role" NOT NULL DEFAULT 'CUSTOMER',
@@ -13,13 +13,13 @@ CREATE TABLE "User" (
 
 -- CreateTable
 CREATE TABLE "Teknisi" (
-    "id" BIGSERIAL NOT NULL,
+    "id" SERIAL NOT NULL,
     "nama" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "nip" TEXT NOT NULL,
     "no_telp" TEXT NOT NULL,
     "total_handling" INTEGER NOT NULL,
-    "user_id" BIGINT NOT NULL,
+    "user_id" INTEGER NOT NULL,
 
     CONSTRAINT "Teknisi_pkey" PRIMARY KEY ("id")
 );
@@ -34,10 +34,10 @@ CREATE TABLE "Order" (
     "kecamatan" TEXT NOT NULL,
     "jalan" TEXT NOT NULL,
     "reject_reason" TEXT,
-    "user_id" BIGINT NOT NULL,
+    "user_id" INTEGER NOT NULL,
     "package_id" INTEGER NOT NULL,
     "status_id" INTEGER NOT NULL DEFAULT 2,
-    "teknisi_id" BIGINT,
+    "teknisi_id" INTEGER,
 
     CONSTRAINT "Order_pkey" PRIMARY KEY ("id")
 );
@@ -59,6 +59,9 @@ CREATE TABLE "Status" (
 
     CONSTRAINT "Status_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Teknisi_user_id_key" ON "Teknisi"("user_id");
