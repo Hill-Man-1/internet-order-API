@@ -1271,11 +1271,11 @@ export namespace Prisma {
    */
 
   export type TeknisiCountOutputType = {
-    Order: number
+    Orders: number
   }
 
   export type TeknisiCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Order?: boolean | TeknisiCountOutputTypeCountOrderArgs
+    Orders?: boolean | TeknisiCountOutputTypeCountOrdersArgs
   }
 
   // Custom InputTypes
@@ -1292,7 +1292,7 @@ export namespace Prisma {
   /**
    * TeknisiCountOutputType without action
    */
-  export type TeknisiCountOutputTypeCountOrderArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TeknisiCountOutputTypeCountOrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: OrderWhereInput
   }
 
@@ -1302,11 +1302,11 @@ export namespace Prisma {
    */
 
   export type PackageCountOutputType = {
-    Order: number
+    Orders: number
   }
 
   export type PackageCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Order?: boolean | PackageCountOutputTypeCountOrderArgs
+    Orders?: boolean | PackageCountOutputTypeCountOrdersArgs
   }
 
   // Custom InputTypes
@@ -1323,7 +1323,7 @@ export namespace Prisma {
   /**
    * PackageCountOutputType without action
    */
-  export type PackageCountOutputTypeCountOrderArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PackageCountOutputTypeCountOrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: OrderWhereInput
   }
 
@@ -1333,11 +1333,11 @@ export namespace Prisma {
    */
 
   export type StatusCountOutputType = {
-    Order: number
+    Orders: number
   }
 
   export type StatusCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Order?: boolean | StatusCountOutputTypeCountOrderArgs
+    Orders?: boolean | StatusCountOutputTypeCountOrdersArgs
   }
 
   // Custom InputTypes
@@ -1354,7 +1354,7 @@ export namespace Prisma {
   /**
    * StatusCountOutputType without action
    */
-  export type StatusCountOutputTypeCountOrderArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type StatusCountOutputTypeCountOrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: OrderWhereInput
   }
 
@@ -1380,18 +1380,18 @@ export namespace Prisma {
   }
 
   export type UserSumAggregateOutputType = {
-    id: bigint | null
+    id: number | null
   }
 
   export type UserMinAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     username: string | null
     password: string | null
     role: $Enums.Role | null
   }
 
   export type UserMaxAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     username: string | null
     password: string | null
     role: $Enums.Role | null
@@ -1523,7 +1523,7 @@ export namespace Prisma {
   }
 
   export type UserGroupByOutputType = {
-    id: bigint
+    id: number
     username: string
     password: string
     role: $Enums.Role
@@ -1580,7 +1580,7 @@ export namespace Prisma {
       Orders: Prisma.$OrderPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: bigint
+      id: number
       username: string
       password: string
       role: $Enums.Role
@@ -2007,7 +2007,7 @@ export namespace Prisma {
    * Fields of the User model
    */ 
   interface UserFieldRefs {
-    readonly id: FieldRef<"User", 'BigInt'>
+    readonly id: FieldRef<"User", 'Int'>
     readonly username: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'Role'>
@@ -2397,29 +2397,29 @@ export namespace Prisma {
   }
 
   export type TeknisiSumAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     total_handling: number | null
-    user_id: bigint | null
+    user_id: number | null
   }
 
   export type TeknisiMinAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     nama: string | null
     password: string | null
     nip: string | null
     no_telp: string | null
     total_handling: number | null
-    user_id: bigint | null
+    user_id: number | null
   }
 
   export type TeknisiMaxAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     nama: string | null
     password: string | null
     nip: string | null
     no_telp: string | null
     total_handling: number | null
-    user_id: bigint | null
+    user_id: number | null
   }
 
   export type TeknisiCountAggregateOutputType = {
@@ -2564,13 +2564,13 @@ export namespace Prisma {
   }
 
   export type TeknisiGroupByOutputType = {
-    id: bigint
+    id: number
     nama: string
     password: string
     nip: string
     no_telp: string
     total_handling: number
-    user_id: bigint
+    user_id: number
     _count: TeknisiCountAggregateOutputType | null
     _avg: TeknisiAvgAggregateOutputType | null
     _sum: TeknisiSumAggregateOutputType | null
@@ -2601,7 +2601,7 @@ export namespace Prisma {
     total_handling?: boolean
     user_id?: boolean
     User?: boolean | UserDefaultArgs<ExtArgs>
-    Order?: boolean | Teknisi$OrderArgs<ExtArgs>
+    Orders?: boolean | Teknisi$OrdersArgs<ExtArgs>
     _count?: boolean | TeknisiCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["teknisi"]>
 
@@ -2618,7 +2618,7 @@ export namespace Prisma {
 
   export type TeknisiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | UserDefaultArgs<ExtArgs>
-    Order?: boolean | Teknisi$OrderArgs<ExtArgs>
+    Orders?: boolean | Teknisi$OrdersArgs<ExtArgs>
     _count?: boolean | TeknisiCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -2627,16 +2627,16 @@ export namespace Prisma {
     name: "Teknisi"
     objects: {
       User: Prisma.$UserPayload<ExtArgs>
-      Order: Prisma.$OrderPayload<ExtArgs>[]
+      Orders: Prisma.$OrderPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: bigint
+      id: number
       nama: string
       password: string
       nip: string
       no_telp: string
       total_handling: number
-      user_id: bigint
+      user_id: number
     }, ExtArgs["result"]["teknisi"]>
     composites: {}
   }
@@ -3030,7 +3030,7 @@ export namespace Prisma {
 
     User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
-    Order<T extends Teknisi$OrderArgs<ExtArgs> = {}>(args?: Subset<T, Teknisi$OrderArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, 'findMany'> | Null>;
+    Orders<T extends Teknisi$OrdersArgs<ExtArgs> = {}>(args?: Subset<T, Teknisi$OrdersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3060,13 +3060,13 @@ export namespace Prisma {
    * Fields of the Teknisi model
    */ 
   interface TeknisiFieldRefs {
-    readonly id: FieldRef<"Teknisi", 'BigInt'>
+    readonly id: FieldRef<"Teknisi", 'Int'>
     readonly nama: FieldRef<"Teknisi", 'String'>
     readonly password: FieldRef<"Teknisi", 'String'>
     readonly nip: FieldRef<"Teknisi", 'String'>
     readonly no_telp: FieldRef<"Teknisi", 'String'>
     readonly total_handling: FieldRef<"Teknisi", 'Int'>
-    readonly user_id: FieldRef<"Teknisi", 'BigInt'>
+    readonly user_id: FieldRef<"Teknisi", 'Int'>
   }
     
 
@@ -3385,9 +3385,9 @@ export namespace Prisma {
   }
 
   /**
-   * Teknisi.Order
+   * Teknisi.Orders
    */
-  export type Teknisi$OrderArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Teknisi$OrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Order
      */
@@ -3441,10 +3441,10 @@ export namespace Prisma {
 
   export type OrderSumAggregateOutputType = {
     id: number | null
-    user_id: bigint | null
+    user_id: number | null
     package_id: number | null
     status_id: number | null
-    teknisi_id: bigint | null
+    teknisi_id: number | null
   }
 
   export type OrderMinAggregateOutputType = {
@@ -3456,10 +3456,10 @@ export namespace Prisma {
     kecamatan: string | null
     jalan: string | null
     reject_reason: string | null
-    user_id: bigint | null
+    user_id: number | null
     package_id: number | null
     status_id: number | null
-    teknisi_id: bigint | null
+    teknisi_id: number | null
   }
 
   export type OrderMaxAggregateOutputType = {
@@ -3471,10 +3471,10 @@ export namespace Prisma {
     kecamatan: string | null
     jalan: string | null
     reject_reason: string | null
-    user_id: bigint | null
+    user_id: number | null
     package_id: number | null
     status_id: number | null
-    teknisi_id: bigint | null
+    teknisi_id: number | null
   }
 
   export type OrderCountAggregateOutputType = {
@@ -3651,10 +3651,10 @@ export namespace Prisma {
     kecamatan: string
     jalan: string
     reject_reason: string | null
-    user_id: bigint
+    user_id: number
     package_id: number
     status_id: number
-    teknisi_id: bigint | null
+    teknisi_id: number | null
     _count: OrderCountAggregateOutputType | null
     _avg: OrderAvgAggregateOutputType | null
     _sum: OrderSumAggregateOutputType | null
@@ -3736,10 +3736,10 @@ export namespace Prisma {
       kecamatan: string
       jalan: string
       reject_reason: string | null
-      user_id: bigint
+      user_id: number
       package_id: number
       status_id: number
-      teknisi_id: bigint | null
+      teknisi_id: number | null
     }, ExtArgs["result"]["order"]>
     composites: {}
   }
@@ -4175,10 +4175,10 @@ export namespace Prisma {
     readonly kecamatan: FieldRef<"Order", 'String'>
     readonly jalan: FieldRef<"Order", 'String'>
     readonly reject_reason: FieldRef<"Order", 'String'>
-    readonly user_id: FieldRef<"Order", 'BigInt'>
+    readonly user_id: FieldRef<"Order", 'Int'>
     readonly package_id: FieldRef<"Order", 'Int'>
     readonly status_id: FieldRef<"Order", 'Int'>
-    readonly teknisi_id: FieldRef<"Order", 'BigInt'>
+    readonly teknisi_id: FieldRef<"Order", 'Int'>
   }
     
 
@@ -4716,7 +4716,7 @@ export namespace Prisma {
     nama?: boolean
     harga?: boolean
     deskripsi?: boolean
-    Order?: boolean | Package$OrderArgs<ExtArgs>
+    Orders?: boolean | Package$OrdersArgs<ExtArgs>
     _count?: boolean | PackageCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["package"]>
 
@@ -4729,7 +4729,7 @@ export namespace Prisma {
 
 
   export type PackageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Order?: boolean | Package$OrderArgs<ExtArgs>
+    Orders?: boolean | Package$OrdersArgs<ExtArgs>
     _count?: boolean | PackageCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -4737,7 +4737,7 @@ export namespace Prisma {
   export type $PackagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Package"
     objects: {
-      Order: Prisma.$OrderPayload<ExtArgs>[]
+      Orders: Prisma.$OrderPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -5135,7 +5135,7 @@ export namespace Prisma {
   export interface Prisma__PackageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    Order<T extends Package$OrderArgs<ExtArgs> = {}>(args?: Subset<T, Package$OrderArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, 'findMany'> | Null>;
+    Orders<T extends Package$OrdersArgs<ExtArgs> = {}>(args?: Subset<T, Package$OrdersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -5487,9 +5487,9 @@ export namespace Prisma {
   }
 
   /**
-   * Package.Order
+   * Package.Orders
    */
-  export type Package$OrderArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Package$OrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Order
      */
@@ -5695,7 +5695,7 @@ export namespace Prisma {
   export type StatusSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    Order?: boolean | Status$OrderArgs<ExtArgs>
+    Orders?: boolean | Status$OrdersArgs<ExtArgs>
     _count?: boolean | StatusCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["status"]>
 
@@ -5706,7 +5706,7 @@ export namespace Prisma {
 
 
   export type StatusInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Order?: boolean | Status$OrderArgs<ExtArgs>
+    Orders?: boolean | Status$OrdersArgs<ExtArgs>
     _count?: boolean | StatusCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -5714,7 +5714,7 @@ export namespace Prisma {
   export type $StatusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Status"
     objects: {
-      Order: Prisma.$OrderPayload<ExtArgs>[]
+      Orders: Prisma.$OrderPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -6110,7 +6110,7 @@ export namespace Prisma {
   export interface Prisma__StatusClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    Order<T extends Status$OrderArgs<ExtArgs> = {}>(args?: Subset<T, Status$OrderArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, 'findMany'> | Null>;
+    Orders<T extends Status$OrdersArgs<ExtArgs> = {}>(args?: Subset<T, Status$OrdersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -6460,9 +6460,9 @@ export namespace Prisma {
   }
 
   /**
-   * Status.Order
+   * Status.Orders
    */
-  export type Status$OrderArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Status$OrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Order
      */
@@ -6597,16 +6597,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BigInt'
+   * Reference to a field of type 'Int'
    */
-  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
     
 
 
   /**
-   * Reference to a field of type 'BigInt[]'
+   * Reference to a field of type 'Int[]'
    */
-  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -6639,20 +6639,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -6673,7 +6659,7 @@ export namespace Prisma {
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    id?: BigIntFilter<"User"> | bigint | number
+    id?: IntFilter<"User"> | number
     username?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
@@ -6691,16 +6677,16 @@ export namespace Prisma {
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
-    id?: bigint | number
+    id?: number
+    username?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
-    username?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
     role?: EnumRoleFilter<"User"> | $Enums.Role
     Teknisi?: XOR<TeknisiNullableRelationFilter, TeknisiWhereInput> | null
     Orders?: OrderListRelationFilter
-  }, "id">
+  }, "id" | "username">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
@@ -6718,7 +6704,7 @@ export namespace Prisma {
     AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    id?: BigIntWithAggregatesFilter<"User"> | bigint | number
+    id?: IntWithAggregatesFilter<"User"> | number
     username?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
     role?: EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
@@ -6728,15 +6714,15 @@ export namespace Prisma {
     AND?: TeknisiWhereInput | TeknisiWhereInput[]
     OR?: TeknisiWhereInput[]
     NOT?: TeknisiWhereInput | TeknisiWhereInput[]
-    id?: BigIntFilter<"Teknisi"> | bigint | number
+    id?: IntFilter<"Teknisi"> | number
     nama?: StringFilter<"Teknisi"> | string
     password?: StringFilter<"Teknisi"> | string
     nip?: StringFilter<"Teknisi"> | string
     no_telp?: StringFilter<"Teknisi"> | string
     total_handling?: IntFilter<"Teknisi"> | number
-    user_id?: BigIntFilter<"Teknisi"> | bigint | number
+    user_id?: IntFilter<"Teknisi"> | number
     User?: XOR<UserRelationFilter, UserWhereInput>
-    Order?: OrderListRelationFilter
+    Orders?: OrderListRelationFilter
   }
 
   export type TeknisiOrderByWithRelationInput = {
@@ -6748,12 +6734,12 @@ export namespace Prisma {
     total_handling?: SortOrder
     user_id?: SortOrder
     User?: UserOrderByWithRelationInput
-    Order?: OrderOrderByRelationAggregateInput
+    Orders?: OrderOrderByRelationAggregateInput
   }
 
   export type TeknisiWhereUniqueInput = Prisma.AtLeast<{
-    id?: bigint | number
-    user_id?: bigint | number
+    id?: number
+    user_id?: number
     AND?: TeknisiWhereInput | TeknisiWhereInput[]
     OR?: TeknisiWhereInput[]
     NOT?: TeknisiWhereInput | TeknisiWhereInput[]
@@ -6763,7 +6749,7 @@ export namespace Prisma {
     no_telp?: StringFilter<"Teknisi"> | string
     total_handling?: IntFilter<"Teknisi"> | number
     User?: XOR<UserRelationFilter, UserWhereInput>
-    Order?: OrderListRelationFilter
+    Orders?: OrderListRelationFilter
   }, "id" | "user_id">
 
   export type TeknisiOrderByWithAggregationInput = {
@@ -6785,13 +6771,13 @@ export namespace Prisma {
     AND?: TeknisiScalarWhereWithAggregatesInput | TeknisiScalarWhereWithAggregatesInput[]
     OR?: TeknisiScalarWhereWithAggregatesInput[]
     NOT?: TeknisiScalarWhereWithAggregatesInput | TeknisiScalarWhereWithAggregatesInput[]
-    id?: BigIntWithAggregatesFilter<"Teknisi"> | bigint | number
+    id?: IntWithAggregatesFilter<"Teknisi"> | number
     nama?: StringWithAggregatesFilter<"Teknisi"> | string
     password?: StringWithAggregatesFilter<"Teknisi"> | string
     nip?: StringWithAggregatesFilter<"Teknisi"> | string
     no_telp?: StringWithAggregatesFilter<"Teknisi"> | string
     total_handling?: IntWithAggregatesFilter<"Teknisi"> | number
-    user_id?: BigIntWithAggregatesFilter<"Teknisi"> | bigint | number
+    user_id?: IntWithAggregatesFilter<"Teknisi"> | number
   }
 
   export type OrderWhereInput = {
@@ -6806,10 +6792,10 @@ export namespace Prisma {
     kecamatan?: StringFilter<"Order"> | string
     jalan?: StringFilter<"Order"> | string
     reject_reason?: StringNullableFilter<"Order"> | string | null
-    user_id?: BigIntFilter<"Order"> | bigint | number
+    user_id?: IntFilter<"Order"> | number
     package_id?: IntFilter<"Order"> | number
     status_id?: IntFilter<"Order"> | number
-    teknisi_id?: BigIntNullableFilter<"Order"> | bigint | number | null
+    teknisi_id?: IntNullableFilter<"Order"> | number | null
     User?: XOR<UserRelationFilter, UserWhereInput>
     Package?: XOR<PackageRelationFilter, PackageWhereInput>
     Status?: XOR<StatusRelationFilter, StatusWhereInput>
@@ -6847,10 +6833,10 @@ export namespace Prisma {
     kecamatan?: StringFilter<"Order"> | string
     jalan?: StringFilter<"Order"> | string
     reject_reason?: StringNullableFilter<"Order"> | string | null
-    user_id?: BigIntFilter<"Order"> | bigint | number
+    user_id?: IntFilter<"Order"> | number
     package_id?: IntFilter<"Order"> | number
     status_id?: IntFilter<"Order"> | number
-    teknisi_id?: BigIntNullableFilter<"Order"> | bigint | number | null
+    teknisi_id?: IntNullableFilter<"Order"> | number | null
     User?: XOR<UserRelationFilter, UserWhereInput>
     Package?: XOR<PackageRelationFilter, PackageWhereInput>
     Status?: XOR<StatusRelationFilter, StatusWhereInput>
@@ -6889,10 +6875,10 @@ export namespace Prisma {
     kecamatan?: StringWithAggregatesFilter<"Order"> | string
     jalan?: StringWithAggregatesFilter<"Order"> | string
     reject_reason?: StringNullableWithAggregatesFilter<"Order"> | string | null
-    user_id?: BigIntWithAggregatesFilter<"Order"> | bigint | number
+    user_id?: IntWithAggregatesFilter<"Order"> | number
     package_id?: IntWithAggregatesFilter<"Order"> | number
     status_id?: IntWithAggregatesFilter<"Order"> | number
-    teknisi_id?: BigIntNullableWithAggregatesFilter<"Order"> | bigint | number | null
+    teknisi_id?: IntNullableWithAggregatesFilter<"Order"> | number | null
   }
 
   export type PackageWhereInput = {
@@ -6903,7 +6889,7 @@ export namespace Prisma {
     nama?: StringFilter<"Package"> | string
     harga?: StringFilter<"Package"> | string
     deskripsi?: StringFilter<"Package"> | string
-    Order?: OrderListRelationFilter
+    Orders?: OrderListRelationFilter
   }
 
   export type PackageOrderByWithRelationInput = {
@@ -6911,7 +6897,7 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
-    Order?: OrderOrderByRelationAggregateInput
+    Orders?: OrderOrderByRelationAggregateInput
   }
 
   export type PackageWhereUniqueInput = Prisma.AtLeast<{
@@ -6922,7 +6908,7 @@ export namespace Prisma {
     nama?: StringFilter<"Package"> | string
     harga?: StringFilter<"Package"> | string
     deskripsi?: StringFilter<"Package"> | string
-    Order?: OrderListRelationFilter
+    Orders?: OrderListRelationFilter
   }, "id">
 
   export type PackageOrderByWithAggregationInput = {
@@ -6953,13 +6939,13 @@ export namespace Prisma {
     NOT?: StatusWhereInput | StatusWhereInput[]
     id?: IntFilter<"Status"> | number
     name?: StringFilter<"Status"> | string
-    Order?: OrderListRelationFilter
+    Orders?: OrderListRelationFilter
   }
 
   export type StatusOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    Order?: OrderOrderByRelationAggregateInput
+    Orders?: OrderOrderByRelationAggregateInput
   }
 
   export type StatusWhereUniqueInput = Prisma.AtLeast<{
@@ -6968,7 +6954,7 @@ export namespace Prisma {
     OR?: StatusWhereInput[]
     NOT?: StatusWhereInput | StatusWhereInput[]
     name?: StringFilter<"Status"> | string
-    Order?: OrderListRelationFilter
+    Orders?: OrderListRelationFilter
   }, "id">
 
   export type StatusOrderByWithAggregationInput = {
@@ -6990,7 +6976,6 @@ export namespace Prisma {
   }
 
   export type UserCreateInput = {
-    id?: bigint | number
     username: string
     password: string
     role?: $Enums.Role
@@ -6999,7 +6984,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateInput = {
-    id?: bigint | number
+    id?: number
     username: string
     password: string
     role?: $Enums.Role
@@ -7008,7 +6993,6 @@ export namespace Prisma {
   }
 
   export type UserUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -7017,7 +7001,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -7026,82 +7010,78 @@ export namespace Prisma {
   }
 
   export type UserCreateManyInput = {
-    id?: bigint | number
+    id?: number
     username: string
     password: string
     role?: $Enums.Role
   }
 
   export type UserUpdateManyMutationInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
   export type UserUncheckedUpdateManyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
   }
 
   export type TeknisiCreateInput = {
-    id?: bigint | number
     nama: string
     password: string
     nip: string
     no_telp: string
     total_handling: number
     User: UserCreateNestedOneWithoutTeknisiInput
-    Order?: OrderCreateNestedManyWithoutTeknisiInput
+    Orders?: OrderCreateNestedManyWithoutTeknisiInput
   }
 
   export type TeknisiUncheckedCreateInput = {
-    id?: bigint | number
+    id?: number
     nama: string
     password: string
     nip: string
     no_telp: string
     total_handling: number
-    user_id: bigint | number
-    Order?: OrderUncheckedCreateNestedManyWithoutTeknisiInput
+    user_id: number
+    Orders?: OrderUncheckedCreateNestedManyWithoutTeknisiInput
   }
 
   export type TeknisiUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     nama?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nip?: StringFieldUpdateOperationsInput | string
     no_telp?: StringFieldUpdateOperationsInput | string
     total_handling?: IntFieldUpdateOperationsInput | number
     User?: UserUpdateOneRequiredWithoutTeknisiNestedInput
-    Order?: OrderUpdateManyWithoutTeknisiNestedInput
+    Orders?: OrderUpdateManyWithoutTeknisiNestedInput
   }
 
   export type TeknisiUncheckedUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nip?: StringFieldUpdateOperationsInput | string
     no_telp?: StringFieldUpdateOperationsInput | string
     total_handling?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    Order?: OrderUncheckedUpdateManyWithoutTeknisiNestedInput
+    user_id?: IntFieldUpdateOperationsInput | number
+    Orders?: OrderUncheckedUpdateManyWithoutTeknisiNestedInput
   }
 
   export type TeknisiCreateManyInput = {
-    id?: bigint | number
+    id?: number
     nama: string
     password: string
     nip: string
     no_telp: string
     total_handling: number
-    user_id: bigint | number
+    user_id: number
   }
 
   export type TeknisiUpdateManyMutationInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     nama?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nip?: StringFieldUpdateOperationsInput | string
@@ -7110,13 +7090,13 @@ export namespace Prisma {
   }
 
   export type TeknisiUncheckedUpdateManyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nip?: StringFieldUpdateOperationsInput | string
     no_telp?: StringFieldUpdateOperationsInput | string
     total_handling?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type OrderCreateInput = {
@@ -7128,9 +7108,9 @@ export namespace Prisma {
     jalan: string
     reject_reason?: string | null
     User: UserCreateNestedOneWithoutOrdersInput
-    Package: PackageCreateNestedOneWithoutOrderInput
-    Status?: StatusCreateNestedOneWithoutOrderInput
-    Teknisi?: TeknisiCreateNestedOneWithoutOrderInput
+    Package: PackageCreateNestedOneWithoutOrdersInput
+    Status?: StatusCreateNestedOneWithoutOrdersInput
+    Teknisi?: TeknisiCreateNestedOneWithoutOrdersInput
   }
 
   export type OrderUncheckedCreateInput = {
@@ -7142,10 +7122,10 @@ export namespace Prisma {
     kecamatan: string
     jalan: string
     reject_reason?: string | null
-    user_id: bigint | number
+    user_id: number
     package_id: number
     status_id?: number
-    teknisi_id?: bigint | number | null
+    teknisi_id?: number | null
   }
 
   export type OrderUpdateInput = {
@@ -7157,9 +7137,9 @@ export namespace Prisma {
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
     User?: UserUpdateOneRequiredWithoutOrdersNestedInput
-    Package?: PackageUpdateOneRequiredWithoutOrderNestedInput
-    Status?: StatusUpdateOneRequiredWithoutOrderNestedInput
-    Teknisi?: TeknisiUpdateOneWithoutOrderNestedInput
+    Package?: PackageUpdateOneRequiredWithoutOrdersNestedInput
+    Status?: StatusUpdateOneRequiredWithoutOrdersNestedInput
+    Teknisi?: TeknisiUpdateOneWithoutOrdersNestedInput
   }
 
   export type OrderUncheckedUpdateInput = {
@@ -7171,10 +7151,10 @@ export namespace Prisma {
     kecamatan?: StringFieldUpdateOperationsInput | string
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     package_id?: IntFieldUpdateOperationsInput | number
     status_id?: IntFieldUpdateOperationsInput | number
-    teknisi_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    teknisi_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type OrderCreateManyInput = {
@@ -7186,10 +7166,10 @@ export namespace Prisma {
     kecamatan: string
     jalan: string
     reject_reason?: string | null
-    user_id: bigint | number
+    user_id: number
     package_id: number
     status_id?: number
-    teknisi_id?: bigint | number | null
+    teknisi_id?: number | null
   }
 
   export type OrderUpdateManyMutationInput = {
@@ -7211,17 +7191,17 @@ export namespace Prisma {
     kecamatan?: StringFieldUpdateOperationsInput | string
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     package_id?: IntFieldUpdateOperationsInput | number
     status_id?: IntFieldUpdateOperationsInput | number
-    teknisi_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    teknisi_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type PackageCreateInput = {
     nama: string
     harga: string
     deskripsi: string
-    Order?: OrderCreateNestedManyWithoutPackageInput
+    Orders?: OrderCreateNestedManyWithoutPackageInput
   }
 
   export type PackageUncheckedCreateInput = {
@@ -7229,14 +7209,14 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
-    Order?: OrderUncheckedCreateNestedManyWithoutPackageInput
+    Orders?: OrderUncheckedCreateNestedManyWithoutPackageInput
   }
 
   export type PackageUpdateInput = {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
-    Order?: OrderUpdateManyWithoutPackageNestedInput
+    Orders?: OrderUpdateManyWithoutPackageNestedInput
   }
 
   export type PackageUncheckedUpdateInput = {
@@ -7244,7 +7224,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
-    Order?: OrderUncheckedUpdateManyWithoutPackageNestedInput
+    Orders?: OrderUncheckedUpdateManyWithoutPackageNestedInput
   }
 
   export type PackageCreateManyInput = {
@@ -7269,24 +7249,24 @@ export namespace Prisma {
 
   export type StatusCreateInput = {
     name: string
-    Order?: OrderCreateNestedManyWithoutStatusInput
+    Orders?: OrderCreateNestedManyWithoutStatusInput
   }
 
   export type StatusUncheckedCreateInput = {
     id?: number
     name: string
-    Order?: OrderUncheckedCreateNestedManyWithoutStatusInput
+    Orders?: OrderUncheckedCreateNestedManyWithoutStatusInput
   }
 
   export type StatusUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    Order?: OrderUpdateManyWithoutStatusNestedInput
+    Orders?: OrderUpdateManyWithoutStatusNestedInput
   }
 
   export type StatusUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    Order?: OrderUncheckedUpdateManyWithoutStatusNestedInput
+    Orders?: OrderUncheckedUpdateManyWithoutStatusNestedInput
   }
 
   export type StatusCreateManyInput = {
@@ -7303,15 +7283,15 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type BigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -7380,20 +7360,20 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
     _count?: NestedIntFilter<$PrismaModel>
     _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -7422,17 +7402,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumRoleFilter<$PrismaModel>
     _max?: NestedEnumRoleFilter<$PrismaModel>
-  }
-
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type UserRelationFilter = {
@@ -7482,22 +7451,6 @@ export namespace Prisma {
     user_id?: SortOrder
   }
 
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -7513,15 +7466,15 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type BigIntNullableFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type PackageRelationFilter = {
@@ -7618,20 +7571,20 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedBigIntNullableFilter<$PrismaModel>
-    _min?: NestedBigIntNullableFilter<$PrismaModel>
-    _max?: NestedBigIntNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type PackageCountOrderByAggregateInput = {
@@ -7712,14 +7665,6 @@ export namespace Prisma {
     connect?: OrderWhereUniqueInput | OrderWhereUniqueInput[]
   }
 
-  export type BigIntFieldUpdateOperationsInput = {
-    set?: bigint | number
-    increment?: bigint | number
-    decrement?: bigint | number
-    multiply?: bigint | number
-    divide?: bigint | number
-  }
-
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -7750,6 +7695,14 @@ export namespace Prisma {
     update?: OrderUpdateWithWhereUniqueWithoutUserInput | OrderUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: OrderUpdateManyWithWhereWithoutUserInput | OrderUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: OrderScalarWhereInput | OrderScalarWhereInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type TeknisiUncheckedUpdateOneWithoutUserNestedInput = {
@@ -7796,14 +7749,6 @@ export namespace Prisma {
     connect?: OrderWhereUniqueInput | OrderWhereUniqueInput[]
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type UserUpdateOneRequiredWithoutTeknisiNestedInput = {
     create?: XOR<UserCreateWithoutTeknisiInput, UserUncheckedCreateWithoutTeknisiInput>
     connectOrCreate?: UserCreateOrConnectWithoutTeknisiInput
@@ -7846,21 +7791,21 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type PackageCreateNestedOneWithoutOrderInput = {
-    create?: XOR<PackageCreateWithoutOrderInput, PackageUncheckedCreateWithoutOrderInput>
-    connectOrCreate?: PackageCreateOrConnectWithoutOrderInput
+  export type PackageCreateNestedOneWithoutOrdersInput = {
+    create?: XOR<PackageCreateWithoutOrdersInput, PackageUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: PackageCreateOrConnectWithoutOrdersInput
     connect?: PackageWhereUniqueInput
   }
 
-  export type StatusCreateNestedOneWithoutOrderInput = {
-    create?: XOR<StatusCreateWithoutOrderInput, StatusUncheckedCreateWithoutOrderInput>
-    connectOrCreate?: StatusCreateOrConnectWithoutOrderInput
+  export type StatusCreateNestedOneWithoutOrdersInput = {
+    create?: XOR<StatusCreateWithoutOrdersInput, StatusUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: StatusCreateOrConnectWithoutOrdersInput
     connect?: StatusWhereUniqueInput
   }
 
-  export type TeknisiCreateNestedOneWithoutOrderInput = {
-    create?: XOR<TeknisiCreateWithoutOrderInput, TeknisiUncheckedCreateWithoutOrderInput>
-    connectOrCreate?: TeknisiCreateOrConnectWithoutOrderInput
+  export type TeknisiCreateNestedOneWithoutOrdersInput = {
+    create?: XOR<TeknisiCreateWithoutOrdersInput, TeknisiUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: TeknisiCreateOrConnectWithoutOrdersInput
     connect?: TeknisiWhereUniqueInput
   }
 
@@ -7876,38 +7821,38 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutOrdersInput, UserUpdateWithoutOrdersInput>, UserUncheckedUpdateWithoutOrdersInput>
   }
 
-  export type PackageUpdateOneRequiredWithoutOrderNestedInput = {
-    create?: XOR<PackageCreateWithoutOrderInput, PackageUncheckedCreateWithoutOrderInput>
-    connectOrCreate?: PackageCreateOrConnectWithoutOrderInput
-    upsert?: PackageUpsertWithoutOrderInput
+  export type PackageUpdateOneRequiredWithoutOrdersNestedInput = {
+    create?: XOR<PackageCreateWithoutOrdersInput, PackageUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: PackageCreateOrConnectWithoutOrdersInput
+    upsert?: PackageUpsertWithoutOrdersInput
     connect?: PackageWhereUniqueInput
-    update?: XOR<XOR<PackageUpdateToOneWithWhereWithoutOrderInput, PackageUpdateWithoutOrderInput>, PackageUncheckedUpdateWithoutOrderInput>
+    update?: XOR<XOR<PackageUpdateToOneWithWhereWithoutOrdersInput, PackageUpdateWithoutOrdersInput>, PackageUncheckedUpdateWithoutOrdersInput>
   }
 
-  export type StatusUpdateOneRequiredWithoutOrderNestedInput = {
-    create?: XOR<StatusCreateWithoutOrderInput, StatusUncheckedCreateWithoutOrderInput>
-    connectOrCreate?: StatusCreateOrConnectWithoutOrderInput
-    upsert?: StatusUpsertWithoutOrderInput
+  export type StatusUpdateOneRequiredWithoutOrdersNestedInput = {
+    create?: XOR<StatusCreateWithoutOrdersInput, StatusUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: StatusCreateOrConnectWithoutOrdersInput
+    upsert?: StatusUpsertWithoutOrdersInput
     connect?: StatusWhereUniqueInput
-    update?: XOR<XOR<StatusUpdateToOneWithWhereWithoutOrderInput, StatusUpdateWithoutOrderInput>, StatusUncheckedUpdateWithoutOrderInput>
+    update?: XOR<XOR<StatusUpdateToOneWithWhereWithoutOrdersInput, StatusUpdateWithoutOrdersInput>, StatusUncheckedUpdateWithoutOrdersInput>
   }
 
-  export type TeknisiUpdateOneWithoutOrderNestedInput = {
-    create?: XOR<TeknisiCreateWithoutOrderInput, TeknisiUncheckedCreateWithoutOrderInput>
-    connectOrCreate?: TeknisiCreateOrConnectWithoutOrderInput
-    upsert?: TeknisiUpsertWithoutOrderInput
+  export type TeknisiUpdateOneWithoutOrdersNestedInput = {
+    create?: XOR<TeknisiCreateWithoutOrdersInput, TeknisiUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: TeknisiCreateOrConnectWithoutOrdersInput
+    upsert?: TeknisiUpsertWithoutOrdersInput
     disconnect?: TeknisiWhereInput | boolean
     delete?: TeknisiWhereInput | boolean
     connect?: TeknisiWhereUniqueInput
-    update?: XOR<XOR<TeknisiUpdateToOneWithWhereWithoutOrderInput, TeknisiUpdateWithoutOrderInput>, TeknisiUncheckedUpdateWithoutOrderInput>
+    update?: XOR<XOR<TeknisiUpdateToOneWithWhereWithoutOrdersInput, TeknisiUpdateWithoutOrdersInput>, TeknisiUncheckedUpdateWithoutOrdersInput>
   }
 
-  export type NullableBigIntFieldUpdateOperationsInput = {
-    set?: bigint | number | null
-    increment?: bigint | number
-    decrement?: bigint | number
-    multiply?: bigint | number
-    divide?: bigint | number
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type OrderCreateNestedManyWithoutPackageInput = {
@@ -7994,15 +7939,15 @@ export namespace Prisma {
     deleteMany?: OrderScalarWhereInput | OrderScalarWhereInput[]
   }
 
-  export type NestedBigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -8026,23 +7971,7 @@ export namespace Prisma {
     not?: NestedEnumRoleFilter<$PrismaModel> | $Enums.Role
   }
 
-  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
-  }
-
-  export type NestedIntFilter<$PrismaModel = never> = {
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -8050,7 +7979,12 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
@@ -8091,22 +8025,6 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -8121,15 +8039,15 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -8149,7 +8067,7 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -8157,23 +8075,12 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedBigIntNullableFilter<$PrismaModel>
-    _min?: NestedBigIntNullableFilter<$PrismaModel>
-    _max?: NestedBigIntNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
@@ -8188,23 +8095,22 @@ export namespace Prisma {
   }
 
   export type TeknisiCreateWithoutUserInput = {
-    id?: bigint | number
     nama: string
     password: string
     nip: string
     no_telp: string
     total_handling: number
-    Order?: OrderCreateNestedManyWithoutTeknisiInput
+    Orders?: OrderCreateNestedManyWithoutTeknisiInput
   }
 
   export type TeknisiUncheckedCreateWithoutUserInput = {
-    id?: bigint | number
+    id?: number
     nama: string
     password: string
     nip: string
     no_telp: string
     total_handling: number
-    Order?: OrderUncheckedCreateNestedManyWithoutTeknisiInput
+    Orders?: OrderUncheckedCreateNestedManyWithoutTeknisiInput
   }
 
   export type TeknisiCreateOrConnectWithoutUserInput = {
@@ -8220,9 +8126,9 @@ export namespace Prisma {
     kecamatan: string
     jalan: string
     reject_reason?: string | null
-    Package: PackageCreateNestedOneWithoutOrderInput
-    Status?: StatusCreateNestedOneWithoutOrderInput
-    Teknisi?: TeknisiCreateNestedOneWithoutOrderInput
+    Package: PackageCreateNestedOneWithoutOrdersInput
+    Status?: StatusCreateNestedOneWithoutOrdersInput
+    Teknisi?: TeknisiCreateNestedOneWithoutOrdersInput
   }
 
   export type OrderUncheckedCreateWithoutUserInput = {
@@ -8236,7 +8142,7 @@ export namespace Prisma {
     reject_reason?: string | null
     package_id: number
     status_id?: number
-    teknisi_id?: bigint | number | null
+    teknisi_id?: number | null
   }
 
   export type OrderCreateOrConnectWithoutUserInput = {
@@ -8261,23 +8167,22 @@ export namespace Prisma {
   }
 
   export type TeknisiUpdateWithoutUserInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     nama?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nip?: StringFieldUpdateOperationsInput | string
     no_telp?: StringFieldUpdateOperationsInput | string
     total_handling?: IntFieldUpdateOperationsInput | number
-    Order?: OrderUpdateManyWithoutTeknisiNestedInput
+    Orders?: OrderUpdateManyWithoutTeknisiNestedInput
   }
 
   export type TeknisiUncheckedUpdateWithoutUserInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nip?: StringFieldUpdateOperationsInput | string
     no_telp?: StringFieldUpdateOperationsInput | string
     total_handling?: IntFieldUpdateOperationsInput | number
-    Order?: OrderUncheckedUpdateManyWithoutTeknisiNestedInput
+    Orders?: OrderUncheckedUpdateManyWithoutTeknisiNestedInput
   }
 
   export type OrderUpsertWithWhereUniqueWithoutUserInput = {
@@ -8308,14 +8213,13 @@ export namespace Prisma {
     kecamatan?: StringFilter<"Order"> | string
     jalan?: StringFilter<"Order"> | string
     reject_reason?: StringNullableFilter<"Order"> | string | null
-    user_id?: BigIntFilter<"Order"> | bigint | number
+    user_id?: IntFilter<"Order"> | number
     package_id?: IntFilter<"Order"> | number
     status_id?: IntFilter<"Order"> | number
-    teknisi_id?: BigIntNullableFilter<"Order"> | bigint | number | null
+    teknisi_id?: IntNullableFilter<"Order"> | number | null
   }
 
   export type UserCreateWithoutTeknisiInput = {
-    id?: bigint | number
     username: string
     password: string
     role?: $Enums.Role
@@ -8323,7 +8227,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateWithoutTeknisiInput = {
-    id?: bigint | number
+    id?: number
     username: string
     password: string
     role?: $Enums.Role
@@ -8344,8 +8248,8 @@ export namespace Prisma {
     jalan: string
     reject_reason?: string | null
     User: UserCreateNestedOneWithoutOrdersInput
-    Package: PackageCreateNestedOneWithoutOrderInput
-    Status?: StatusCreateNestedOneWithoutOrderInput
+    Package: PackageCreateNestedOneWithoutOrdersInput
+    Status?: StatusCreateNestedOneWithoutOrdersInput
   }
 
   export type OrderUncheckedCreateWithoutTeknisiInput = {
@@ -8357,7 +8261,7 @@ export namespace Prisma {
     kecamatan: string
     jalan: string
     reject_reason?: string | null
-    user_id: bigint | number
+    user_id: number
     package_id: number
     status_id?: number
   }
@@ -8384,7 +8288,6 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutTeknisiInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -8392,7 +8295,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateWithoutTeknisiInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -8416,7 +8319,6 @@ export namespace Prisma {
   }
 
   export type UserCreateWithoutOrdersInput = {
-    id?: bigint | number
     username: string
     password: string
     role?: $Enums.Role
@@ -8424,7 +8326,7 @@ export namespace Prisma {
   }
 
   export type UserUncheckedCreateWithoutOrdersInput = {
-    id?: bigint | number
+    id?: number
     username: string
     password: string
     role?: $Enums.Role
@@ -8436,40 +8338,39 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutOrdersInput, UserUncheckedCreateWithoutOrdersInput>
   }
 
-  export type PackageCreateWithoutOrderInput = {
+  export type PackageCreateWithoutOrdersInput = {
     nama: string
     harga: string
     deskripsi: string
   }
 
-  export type PackageUncheckedCreateWithoutOrderInput = {
+  export type PackageUncheckedCreateWithoutOrdersInput = {
     id?: number
     nama: string
     harga: string
     deskripsi: string
   }
 
-  export type PackageCreateOrConnectWithoutOrderInput = {
+  export type PackageCreateOrConnectWithoutOrdersInput = {
     where: PackageWhereUniqueInput
-    create: XOR<PackageCreateWithoutOrderInput, PackageUncheckedCreateWithoutOrderInput>
+    create: XOR<PackageCreateWithoutOrdersInput, PackageUncheckedCreateWithoutOrdersInput>
   }
 
-  export type StatusCreateWithoutOrderInput = {
+  export type StatusCreateWithoutOrdersInput = {
     name: string
   }
 
-  export type StatusUncheckedCreateWithoutOrderInput = {
+  export type StatusUncheckedCreateWithoutOrdersInput = {
     id?: number
     name: string
   }
 
-  export type StatusCreateOrConnectWithoutOrderInput = {
+  export type StatusCreateOrConnectWithoutOrdersInput = {
     where: StatusWhereUniqueInput
-    create: XOR<StatusCreateWithoutOrderInput, StatusUncheckedCreateWithoutOrderInput>
+    create: XOR<StatusCreateWithoutOrdersInput, StatusUncheckedCreateWithoutOrdersInput>
   }
 
-  export type TeknisiCreateWithoutOrderInput = {
-    id?: bigint | number
+  export type TeknisiCreateWithoutOrdersInput = {
     nama: string
     password: string
     nip: string
@@ -8478,19 +8379,19 @@ export namespace Prisma {
     User: UserCreateNestedOneWithoutTeknisiInput
   }
 
-  export type TeknisiUncheckedCreateWithoutOrderInput = {
-    id?: bigint | number
+  export type TeknisiUncheckedCreateWithoutOrdersInput = {
+    id?: number
     nama: string
     password: string
     nip: string
     no_telp: string
     total_handling: number
-    user_id: bigint | number
+    user_id: number
   }
 
-  export type TeknisiCreateOrConnectWithoutOrderInput = {
+  export type TeknisiCreateOrConnectWithoutOrdersInput = {
     where: TeknisiWhereUniqueInput
-    create: XOR<TeknisiCreateWithoutOrderInput, TeknisiUncheckedCreateWithoutOrderInput>
+    create: XOR<TeknisiCreateWithoutOrdersInput, TeknisiUncheckedCreateWithoutOrdersInput>
   }
 
   export type UserUpsertWithoutOrdersInput = {
@@ -8505,7 +8406,6 @@ export namespace Prisma {
   }
 
   export type UserUpdateWithoutOrdersInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
@@ -8513,70 +8413,69 @@ export namespace Prisma {
   }
 
   export type UserUncheckedUpdateWithoutOrdersInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     Teknisi?: TeknisiUncheckedUpdateOneWithoutUserNestedInput
   }
 
-  export type PackageUpsertWithoutOrderInput = {
-    update: XOR<PackageUpdateWithoutOrderInput, PackageUncheckedUpdateWithoutOrderInput>
-    create: XOR<PackageCreateWithoutOrderInput, PackageUncheckedCreateWithoutOrderInput>
+  export type PackageUpsertWithoutOrdersInput = {
+    update: XOR<PackageUpdateWithoutOrdersInput, PackageUncheckedUpdateWithoutOrdersInput>
+    create: XOR<PackageCreateWithoutOrdersInput, PackageUncheckedCreateWithoutOrdersInput>
     where?: PackageWhereInput
   }
 
-  export type PackageUpdateToOneWithWhereWithoutOrderInput = {
+  export type PackageUpdateToOneWithWhereWithoutOrdersInput = {
     where?: PackageWhereInput
-    data: XOR<PackageUpdateWithoutOrderInput, PackageUncheckedUpdateWithoutOrderInput>
+    data: XOR<PackageUpdateWithoutOrdersInput, PackageUncheckedUpdateWithoutOrdersInput>
   }
 
-  export type PackageUpdateWithoutOrderInput = {
+  export type PackageUpdateWithoutOrdersInput = {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
   }
 
-  export type PackageUncheckedUpdateWithoutOrderInput = {
+  export type PackageUncheckedUpdateWithoutOrdersInput = {
     id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
   }
 
-  export type StatusUpsertWithoutOrderInput = {
-    update: XOR<StatusUpdateWithoutOrderInput, StatusUncheckedUpdateWithoutOrderInput>
-    create: XOR<StatusCreateWithoutOrderInput, StatusUncheckedCreateWithoutOrderInput>
+  export type StatusUpsertWithoutOrdersInput = {
+    update: XOR<StatusUpdateWithoutOrdersInput, StatusUncheckedUpdateWithoutOrdersInput>
+    create: XOR<StatusCreateWithoutOrdersInput, StatusUncheckedCreateWithoutOrdersInput>
     where?: StatusWhereInput
   }
 
-  export type StatusUpdateToOneWithWhereWithoutOrderInput = {
+  export type StatusUpdateToOneWithWhereWithoutOrdersInput = {
     where?: StatusWhereInput
-    data: XOR<StatusUpdateWithoutOrderInput, StatusUncheckedUpdateWithoutOrderInput>
+    data: XOR<StatusUpdateWithoutOrdersInput, StatusUncheckedUpdateWithoutOrdersInput>
   }
 
-  export type StatusUpdateWithoutOrderInput = {
+  export type StatusUpdateWithoutOrdersInput = {
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type StatusUncheckedUpdateWithoutOrderInput = {
+  export type StatusUncheckedUpdateWithoutOrdersInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
   }
 
-  export type TeknisiUpsertWithoutOrderInput = {
-    update: XOR<TeknisiUpdateWithoutOrderInput, TeknisiUncheckedUpdateWithoutOrderInput>
-    create: XOR<TeknisiCreateWithoutOrderInput, TeknisiUncheckedCreateWithoutOrderInput>
+  export type TeknisiUpsertWithoutOrdersInput = {
+    update: XOR<TeknisiUpdateWithoutOrdersInput, TeknisiUncheckedUpdateWithoutOrdersInput>
+    create: XOR<TeknisiCreateWithoutOrdersInput, TeknisiUncheckedCreateWithoutOrdersInput>
     where?: TeknisiWhereInput
   }
 
-  export type TeknisiUpdateToOneWithWhereWithoutOrderInput = {
+  export type TeknisiUpdateToOneWithWhereWithoutOrdersInput = {
     where?: TeknisiWhereInput
-    data: XOR<TeknisiUpdateWithoutOrderInput, TeknisiUncheckedUpdateWithoutOrderInput>
+    data: XOR<TeknisiUpdateWithoutOrdersInput, TeknisiUncheckedUpdateWithoutOrdersInput>
   }
 
-  export type TeknisiUpdateWithoutOrderInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+  export type TeknisiUpdateWithoutOrdersInput = {
     nama?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nip?: StringFieldUpdateOperationsInput | string
@@ -8585,14 +8484,14 @@ export namespace Prisma {
     User?: UserUpdateOneRequiredWithoutTeknisiNestedInput
   }
 
-  export type TeknisiUncheckedUpdateWithoutOrderInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+  export type TeknisiUncheckedUpdateWithoutOrdersInput = {
+    id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     nip?: StringFieldUpdateOperationsInput | string
     no_telp?: StringFieldUpdateOperationsInput | string
     total_handling?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type OrderCreateWithoutPackageInput = {
@@ -8604,8 +8503,8 @@ export namespace Prisma {
     jalan: string
     reject_reason?: string | null
     User: UserCreateNestedOneWithoutOrdersInput
-    Status?: StatusCreateNestedOneWithoutOrderInput
-    Teknisi?: TeknisiCreateNestedOneWithoutOrderInput
+    Status?: StatusCreateNestedOneWithoutOrdersInput
+    Teknisi?: TeknisiCreateNestedOneWithoutOrdersInput
   }
 
   export type OrderUncheckedCreateWithoutPackageInput = {
@@ -8617,9 +8516,9 @@ export namespace Prisma {
     kecamatan: string
     jalan: string
     reject_reason?: string | null
-    user_id: bigint | number
+    user_id: number
     status_id?: number
-    teknisi_id?: bigint | number | null
+    teknisi_id?: number | null
   }
 
   export type OrderCreateOrConnectWithoutPackageInput = {
@@ -8657,8 +8556,8 @@ export namespace Prisma {
     jalan: string
     reject_reason?: string | null
     User: UserCreateNestedOneWithoutOrdersInput
-    Package: PackageCreateNestedOneWithoutOrderInput
-    Teknisi?: TeknisiCreateNestedOneWithoutOrderInput
+    Package: PackageCreateNestedOneWithoutOrdersInput
+    Teknisi?: TeknisiCreateNestedOneWithoutOrdersInput
   }
 
   export type OrderUncheckedCreateWithoutStatusInput = {
@@ -8670,9 +8569,9 @@ export namespace Prisma {
     kecamatan: string
     jalan: string
     reject_reason?: string | null
-    user_id: bigint | number
+    user_id: number
     package_id: number
-    teknisi_id?: bigint | number | null
+    teknisi_id?: number | null
   }
 
   export type OrderCreateOrConnectWithoutStatusInput = {
@@ -8712,7 +8611,7 @@ export namespace Prisma {
     reject_reason?: string | null
     package_id: number
     status_id?: number
-    teknisi_id?: bigint | number | null
+    teknisi_id?: number | null
   }
 
   export type OrderUpdateWithoutUserInput = {
@@ -8723,9 +8622,9 @@ export namespace Prisma {
     kecamatan?: StringFieldUpdateOperationsInput | string
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
-    Package?: PackageUpdateOneRequiredWithoutOrderNestedInput
-    Status?: StatusUpdateOneRequiredWithoutOrderNestedInput
-    Teknisi?: TeknisiUpdateOneWithoutOrderNestedInput
+    Package?: PackageUpdateOneRequiredWithoutOrdersNestedInput
+    Status?: StatusUpdateOneRequiredWithoutOrdersNestedInput
+    Teknisi?: TeknisiUpdateOneWithoutOrdersNestedInput
   }
 
   export type OrderUncheckedUpdateWithoutUserInput = {
@@ -8739,7 +8638,7 @@ export namespace Prisma {
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
     package_id?: IntFieldUpdateOperationsInput | number
     status_id?: IntFieldUpdateOperationsInput | number
-    teknisi_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    teknisi_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type OrderUncheckedUpdateManyWithoutUserInput = {
@@ -8753,7 +8652,7 @@ export namespace Prisma {
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
     package_id?: IntFieldUpdateOperationsInput | number
     status_id?: IntFieldUpdateOperationsInput | number
-    teknisi_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    teknisi_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type OrderCreateManyTeknisiInput = {
@@ -8765,7 +8664,7 @@ export namespace Prisma {
     kecamatan: string
     jalan: string
     reject_reason?: string | null
-    user_id: bigint | number
+    user_id: number
     package_id: number
     status_id?: number
   }
@@ -8779,8 +8678,8 @@ export namespace Prisma {
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
     User?: UserUpdateOneRequiredWithoutOrdersNestedInput
-    Package?: PackageUpdateOneRequiredWithoutOrderNestedInput
-    Status?: StatusUpdateOneRequiredWithoutOrderNestedInput
+    Package?: PackageUpdateOneRequiredWithoutOrdersNestedInput
+    Status?: StatusUpdateOneRequiredWithoutOrdersNestedInput
   }
 
   export type OrderUncheckedUpdateWithoutTeknisiInput = {
@@ -8792,7 +8691,7 @@ export namespace Prisma {
     kecamatan?: StringFieldUpdateOperationsInput | string
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     package_id?: IntFieldUpdateOperationsInput | number
     status_id?: IntFieldUpdateOperationsInput | number
   }
@@ -8806,7 +8705,7 @@ export namespace Prisma {
     kecamatan?: StringFieldUpdateOperationsInput | string
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     package_id?: IntFieldUpdateOperationsInput | number
     status_id?: IntFieldUpdateOperationsInput | number
   }
@@ -8820,9 +8719,9 @@ export namespace Prisma {
     kecamatan: string
     jalan: string
     reject_reason?: string | null
-    user_id: bigint | number
+    user_id: number
     status_id?: number
-    teknisi_id?: bigint | number | null
+    teknisi_id?: number | null
   }
 
   export type OrderUpdateWithoutPackageInput = {
@@ -8834,8 +8733,8 @@ export namespace Prisma {
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
     User?: UserUpdateOneRequiredWithoutOrdersNestedInput
-    Status?: StatusUpdateOneRequiredWithoutOrderNestedInput
-    Teknisi?: TeknisiUpdateOneWithoutOrderNestedInput
+    Status?: StatusUpdateOneRequiredWithoutOrdersNestedInput
+    Teknisi?: TeknisiUpdateOneWithoutOrdersNestedInput
   }
 
   export type OrderUncheckedUpdateWithoutPackageInput = {
@@ -8847,9 +8746,9 @@ export namespace Prisma {
     kecamatan?: StringFieldUpdateOperationsInput | string
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     status_id?: IntFieldUpdateOperationsInput | number
-    teknisi_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    teknisi_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type OrderUncheckedUpdateManyWithoutPackageInput = {
@@ -8861,9 +8760,9 @@ export namespace Prisma {
     kecamatan?: StringFieldUpdateOperationsInput | string
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     status_id?: IntFieldUpdateOperationsInput | number
-    teknisi_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    teknisi_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type OrderCreateManyStatusInput = {
@@ -8875,9 +8774,9 @@ export namespace Prisma {
     kecamatan: string
     jalan: string
     reject_reason?: string | null
-    user_id: bigint | number
+    user_id: number
     package_id: number
-    teknisi_id?: bigint | number | null
+    teknisi_id?: number | null
   }
 
   export type OrderUpdateWithoutStatusInput = {
@@ -8889,8 +8788,8 @@ export namespace Prisma {
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
     User?: UserUpdateOneRequiredWithoutOrdersNestedInput
-    Package?: PackageUpdateOneRequiredWithoutOrderNestedInput
-    Teknisi?: TeknisiUpdateOneWithoutOrderNestedInput
+    Package?: PackageUpdateOneRequiredWithoutOrdersNestedInput
+    Teknisi?: TeknisiUpdateOneWithoutOrdersNestedInput
   }
 
   export type OrderUncheckedUpdateWithoutStatusInput = {
@@ -8902,9 +8801,9 @@ export namespace Prisma {
     kecamatan?: StringFieldUpdateOperationsInput | string
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     package_id?: IntFieldUpdateOperationsInput | number
-    teknisi_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    teknisi_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type OrderUncheckedUpdateManyWithoutStatusInput = {
@@ -8916,9 +8815,9 @@ export namespace Prisma {
     kecamatan?: StringFieldUpdateOperationsInput | string
     jalan?: StringFieldUpdateOperationsInput | string
     reject_reason?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     package_id?: IntFieldUpdateOperationsInput | number
-    teknisi_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    teknisi_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
 
