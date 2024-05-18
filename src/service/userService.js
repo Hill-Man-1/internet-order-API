@@ -48,5 +48,8 @@ const loginUserService = async (userData) => {
     return {user, token};
 };
 
+const logoutUserService = () => {
+    return { message: "User logged out successfully" };
+}
 
-export { registerUserService, loginUserService };
+export { registerUserService, loginUserService, logoutUserService };
