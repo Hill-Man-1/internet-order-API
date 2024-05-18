@@ -1,12 +1,12 @@
 import jwt from 'jsonwebtoken';
 import JWT_KEY from '../config/jwt/jwt.js';
-import ErrorHandler from '../utils/errorHandler.js';
+import errorHandler from '../utils/errorHandler.js';
 
 const authenticationMiddleware = (req, res, next) => {
     const token = req.cookies.access_token;
 
     if (!token) {
-        const error = new ErrorHandler({
+        const error = new errorHandler({
             success: false,
             message: 'Unauthorized Access..',
             status: 400
@@ -19,7 +19,7 @@ const authenticationMiddleware = (req, res, next) => {
             req.user = decodedToken;
             next();
         } catch (error) {
-            const err = new ErrorHandler({
+            const err = new errorHandler({
                 success: false,
                 message: 'Invalid Request..!',
                 status: 500
