@@ -18,4 +18,19 @@ const checkUsernameDao = async (username) => {
     });
 };
 
-export { registerUserDao, checkUsernameDao };
+const loginDao = async (username) => {
+    return await prisma.user.findUnique({
+        where: {
+            username: username
+        },
+        select: {
+            id: true,
+            username: true,
+            password: true,
+            role: true
+        }
+    }); 
+};
+
+
+export { registerUserDao, checkUsernameDao, loginDao };
