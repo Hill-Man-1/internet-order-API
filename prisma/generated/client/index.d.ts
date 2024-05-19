@@ -2392,12 +2392,16 @@ export namespace Prisma {
 
   export type TeknisiAvgAggregateOutputType = {
     id: number | null
+    nip: number | null
+    no_telp: number | null
     total_handling: number | null
     user_id: number | null
   }
 
   export type TeknisiSumAggregateOutputType = {
     id: number | null
+    nip: number | null
+    no_telp: number | null
     total_handling: number | null
     user_id: number | null
   }
@@ -2405,9 +2409,8 @@ export namespace Prisma {
   export type TeknisiMinAggregateOutputType = {
     id: number | null
     nama: string | null
-    password: string | null
-    nip: string | null
-    no_telp: string | null
+    nip: number | null
+    no_telp: number | null
     total_handling: number | null
     user_id: number | null
   }
@@ -2415,9 +2418,8 @@ export namespace Prisma {
   export type TeknisiMaxAggregateOutputType = {
     id: number | null
     nama: string | null
-    password: string | null
-    nip: string | null
-    no_telp: string | null
+    nip: number | null
+    no_telp: number | null
     total_handling: number | null
     user_id: number | null
   }
@@ -2425,7 +2427,6 @@ export namespace Prisma {
   export type TeknisiCountAggregateOutputType = {
     id: number
     nama: number
-    password: number
     nip: number
     no_telp: number
     total_handling: number
@@ -2436,12 +2437,16 @@ export namespace Prisma {
 
   export type TeknisiAvgAggregateInputType = {
     id?: true
+    nip?: true
+    no_telp?: true
     total_handling?: true
     user_id?: true
   }
 
   export type TeknisiSumAggregateInputType = {
     id?: true
+    nip?: true
+    no_telp?: true
     total_handling?: true
     user_id?: true
   }
@@ -2449,7 +2454,6 @@ export namespace Prisma {
   export type TeknisiMinAggregateInputType = {
     id?: true
     nama?: true
-    password?: true
     nip?: true
     no_telp?: true
     total_handling?: true
@@ -2459,7 +2463,6 @@ export namespace Prisma {
   export type TeknisiMaxAggregateInputType = {
     id?: true
     nama?: true
-    password?: true
     nip?: true
     no_telp?: true
     total_handling?: true
@@ -2469,7 +2472,6 @@ export namespace Prisma {
   export type TeknisiCountAggregateInputType = {
     id?: true
     nama?: true
-    password?: true
     nip?: true
     no_telp?: true
     total_handling?: true
@@ -2566,10 +2568,9 @@ export namespace Prisma {
   export type TeknisiGroupByOutputType = {
     id: number
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling: number | null
     user_id: number
     _count: TeknisiCountAggregateOutputType | null
     _avg: TeknisiAvgAggregateOutputType | null
@@ -2595,7 +2596,6 @@ export namespace Prisma {
   export type TeknisiSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nama?: boolean
-    password?: boolean
     nip?: boolean
     no_telp?: boolean
     total_handling?: boolean
@@ -2608,7 +2608,6 @@ export namespace Prisma {
   export type TeknisiSelectScalar = {
     id?: boolean
     nama?: boolean
-    password?: boolean
     nip?: boolean
     no_telp?: boolean
     total_handling?: boolean
@@ -2632,10 +2631,9 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nama: string
-      password: string
-      nip: string
-      no_telp: string
-      total_handling: number
+      nip: number
+      no_telp: number
+      total_handling: number | null
       user_id: number
     }, ExtArgs["result"]["teknisi"]>
     composites: {}
@@ -3062,9 +3060,8 @@ export namespace Prisma {
   interface TeknisiFieldRefs {
     readonly id: FieldRef<"Teknisi", 'Int'>
     readonly nama: FieldRef<"Teknisi", 'String'>
-    readonly password: FieldRef<"Teknisi", 'String'>
-    readonly nip: FieldRef<"Teknisi", 'String'>
-    readonly no_telp: FieldRef<"Teknisi", 'String'>
+    readonly nip: FieldRef<"Teknisi", 'Int'>
+    readonly no_telp: FieldRef<"Teknisi", 'Int'>
     readonly total_handling: FieldRef<"Teknisi", 'Int'>
     readonly user_id: FieldRef<"Teknisi", 'Int'>
   }
@@ -6521,7 +6518,6 @@ export namespace Prisma {
   export const TeknisiScalarFieldEnum: {
     id: 'id',
     nama: 'nama',
-    password: 'password',
     nip: 'nip',
     no_telp: 'no_telp',
     total_handling: 'total_handling',
@@ -6716,10 +6712,9 @@ export namespace Prisma {
     NOT?: TeknisiWhereInput | TeknisiWhereInput[]
     id?: IntFilter<"Teknisi"> | number
     nama?: StringFilter<"Teknisi"> | string
-    password?: StringFilter<"Teknisi"> | string
-    nip?: StringFilter<"Teknisi"> | string
-    no_telp?: StringFilter<"Teknisi"> | string
-    total_handling?: IntFilter<"Teknisi"> | number
+    nip?: IntFilter<"Teknisi"> | number
+    no_telp?: IntFilter<"Teknisi"> | number
+    total_handling?: IntNullableFilter<"Teknisi"> | number | null
     user_id?: IntFilter<"Teknisi"> | number
     User?: XOR<UserRelationFilter, UserWhereInput>
     Orders?: OrderListRelationFilter
@@ -6728,10 +6723,9 @@ export namespace Prisma {
   export type TeknisiOrderByWithRelationInput = {
     id?: SortOrder
     nama?: SortOrder
-    password?: SortOrder
     nip?: SortOrder
     no_telp?: SortOrder
-    total_handling?: SortOrder
+    total_handling?: SortOrderInput | SortOrder
     user_id?: SortOrder
     User?: UserOrderByWithRelationInput
     Orders?: OrderOrderByRelationAggregateInput
@@ -6744,10 +6738,9 @@ export namespace Prisma {
     OR?: TeknisiWhereInput[]
     NOT?: TeknisiWhereInput | TeknisiWhereInput[]
     nama?: StringFilter<"Teknisi"> | string
-    password?: StringFilter<"Teknisi"> | string
-    nip?: StringFilter<"Teknisi"> | string
-    no_telp?: StringFilter<"Teknisi"> | string
-    total_handling?: IntFilter<"Teknisi"> | number
+    nip?: IntFilter<"Teknisi"> | number
+    no_telp?: IntFilter<"Teknisi"> | number
+    total_handling?: IntNullableFilter<"Teknisi"> | number | null
     User?: XOR<UserRelationFilter, UserWhereInput>
     Orders?: OrderListRelationFilter
   }, "id" | "user_id">
@@ -6755,10 +6748,9 @@ export namespace Prisma {
   export type TeknisiOrderByWithAggregationInput = {
     id?: SortOrder
     nama?: SortOrder
-    password?: SortOrder
     nip?: SortOrder
     no_telp?: SortOrder
-    total_handling?: SortOrder
+    total_handling?: SortOrderInput | SortOrder
     user_id?: SortOrder
     _count?: TeknisiCountOrderByAggregateInput
     _avg?: TeknisiAvgOrderByAggregateInput
@@ -6773,10 +6765,9 @@ export namespace Prisma {
     NOT?: TeknisiScalarWhereWithAggregatesInput | TeknisiScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Teknisi"> | number
     nama?: StringWithAggregatesFilter<"Teknisi"> | string
-    password?: StringWithAggregatesFilter<"Teknisi"> | string
-    nip?: StringWithAggregatesFilter<"Teknisi"> | string
-    no_telp?: StringWithAggregatesFilter<"Teknisi"> | string
-    total_handling?: IntWithAggregatesFilter<"Teknisi"> | number
+    nip?: IntWithAggregatesFilter<"Teknisi"> | number
+    no_telp?: IntWithAggregatesFilter<"Teknisi"> | number
+    total_handling?: IntNullableWithAggregatesFilter<"Teknisi"> | number | null
     user_id?: IntWithAggregatesFilter<"Teknisi"> | number
   }
 
@@ -7031,10 +7022,9 @@ export namespace Prisma {
 
   export type TeknisiCreateInput = {
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number | null
     User: UserCreateNestedOneWithoutTeknisiInput
     Orders?: OrderCreateNestedManyWithoutTeknisiInput
   }
@@ -7042,20 +7032,18 @@ export namespace Prisma {
   export type TeknisiUncheckedCreateInput = {
     id?: number
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number | null
     user_id: number
     Orders?: OrderUncheckedCreateNestedManyWithoutTeknisiInput
   }
 
   export type TeknisiUpdateInput = {
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
-    total_handling?: IntFieldUpdateOperationsInput | number
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
+    total_handling?: NullableIntFieldUpdateOperationsInput | number | null
     User?: UserUpdateOneRequiredWithoutTeknisiNestedInput
     Orders?: OrderUpdateManyWithoutTeknisiNestedInput
   }
@@ -7063,10 +7051,9 @@ export namespace Prisma {
   export type TeknisiUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
-    total_handling?: IntFieldUpdateOperationsInput | number
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
+    total_handling?: NullableIntFieldUpdateOperationsInput | number | null
     user_id?: IntFieldUpdateOperationsInput | number
     Orders?: OrderUncheckedUpdateManyWithoutTeknisiNestedInput
   }
@@ -7074,28 +7061,25 @@ export namespace Prisma {
   export type TeknisiCreateManyInput = {
     id?: number
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number | null
     user_id: number
   }
 
   export type TeknisiUpdateManyMutationInput = {
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
-    total_handling?: IntFieldUpdateOperationsInput | number
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
+    total_handling?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type TeknisiUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
-    total_handling?: IntFieldUpdateOperationsInput | number
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
+    total_handling?: NullableIntFieldUpdateOperationsInput | number | null
     user_id?: IntFieldUpdateOperationsInput | number
   }
 
@@ -7404,15 +7388,30 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type UserRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type TeknisiCountOrderByAggregateInput = {
     id?: SortOrder
     nama?: SortOrder
-    password?: SortOrder
     nip?: SortOrder
     no_telp?: SortOrder
     total_handling?: SortOrder
@@ -7421,6 +7420,8 @@ export namespace Prisma {
 
   export type TeknisiAvgOrderByAggregateInput = {
     id?: SortOrder
+    nip?: SortOrder
+    no_telp?: SortOrder
     total_handling?: SortOrder
     user_id?: SortOrder
   }
@@ -7428,7 +7429,6 @@ export namespace Prisma {
   export type TeknisiMaxOrderByAggregateInput = {
     id?: SortOrder
     nama?: SortOrder
-    password?: SortOrder
     nip?: SortOrder
     no_telp?: SortOrder
     total_handling?: SortOrder
@@ -7438,7 +7438,6 @@ export namespace Prisma {
   export type TeknisiMinOrderByAggregateInput = {
     id?: SortOrder
     nama?: SortOrder
-    password?: SortOrder
     nip?: SortOrder
     no_telp?: SortOrder
     total_handling?: SortOrder
@@ -7447,8 +7446,26 @@ export namespace Prisma {
 
   export type TeknisiSumOrderByAggregateInput = {
     id?: SortOrder
+    nip?: SortOrder
+    no_telp?: SortOrder
     total_handling?: SortOrder
     user_id?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -7466,17 +7483,6 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type PackageRelationFilter = {
     is?: PackageWhereInput
     isNot?: PackageWhereInput
@@ -7485,11 +7491,6 @@ export namespace Prisma {
   export type StatusRelationFilter = {
     is?: StatusWhereInput
     isNot?: StatusWhereInput
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
   }
 
   export type OrderCountOrderByAggregateInput = {
@@ -7569,22 +7570,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type PackageCountOrderByAggregateInput = {
@@ -7749,6 +7734,14 @@ export namespace Prisma {
     connect?: OrderWhereUniqueInput | OrderWhereUniqueInput[]
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type UserUpdateOneRequiredWithoutTeknisiNestedInput = {
     create?: XOR<UserCreateWithoutTeknisiInput, UserUncheckedCreateWithoutTeknisiInput>
     connectOrCreate?: UserCreateOrConnectWithoutTeknisiInput
@@ -7845,14 +7838,6 @@ export namespace Prisma {
     delete?: TeknisiWhereInput | boolean
     connect?: TeknisiWhereUniqueInput
     update?: XOR<XOR<TeknisiUpdateToOneWithWhereWithoutOrdersInput, TeknisiUpdateWithoutOrdersInput>, TeknisiUncheckedUpdateWithoutOrdersInput>
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type OrderCreateNestedManyWithoutPackageInput = {
@@ -8025,20 +8010,6 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type NestedIntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -8048,23 +8019,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -8094,22 +8048,51 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type TeknisiCreateWithoutUserInput = {
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number | null
     Orders?: OrderCreateNestedManyWithoutTeknisiInput
   }
 
   export type TeknisiUncheckedCreateWithoutUserInput = {
     id?: number
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number | null
     Orders?: OrderUncheckedCreateNestedManyWithoutTeknisiInput
   }
 
@@ -8168,20 +8151,18 @@ export namespace Prisma {
 
   export type TeknisiUpdateWithoutUserInput = {
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
-    total_handling?: IntFieldUpdateOperationsInput | number
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
+    total_handling?: NullableIntFieldUpdateOperationsInput | number | null
     Orders?: OrderUpdateManyWithoutTeknisiNestedInput
   }
 
   export type TeknisiUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
-    total_handling?: IntFieldUpdateOperationsInput | number
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
+    total_handling?: NullableIntFieldUpdateOperationsInput | number | null
     Orders?: OrderUncheckedUpdateManyWithoutTeknisiNestedInput
   }
 
@@ -8372,20 +8353,18 @@ export namespace Prisma {
 
   export type TeknisiCreateWithoutOrdersInput = {
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number | null
     User: UserCreateNestedOneWithoutTeknisiInput
   }
 
   export type TeknisiUncheckedCreateWithoutOrdersInput = {
     id?: number
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number | null
     user_id: number
   }
 
@@ -8477,20 +8456,18 @@ export namespace Prisma {
 
   export type TeknisiUpdateWithoutOrdersInput = {
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
-    total_handling?: IntFieldUpdateOperationsInput | number
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
+    total_handling?: NullableIntFieldUpdateOperationsInput | number | null
     User?: UserUpdateOneRequiredWithoutTeknisiNestedInput
   }
 
   export type TeknisiUncheckedUpdateWithoutOrdersInput = {
     id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
-    total_handling?: IntFieldUpdateOperationsInput | number
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
+    total_handling?: NullableIntFieldUpdateOperationsInput | number | null
     user_id?: IntFieldUpdateOperationsInput | number
   }
 

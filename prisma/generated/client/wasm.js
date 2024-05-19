@@ -129,7 +129,6 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.TeknisiScalarFieldEnum = {
   id: 'id',
   nama: 'nama',
-  password: 'password',
   nip: 'nip',
   no_telp: 'no_telp',
   total_handling: 'total_handling',

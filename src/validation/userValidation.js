@@ -28,4 +28,28 @@ const loginValidation = Joi.object({
     }),
 });
 
-export { registerValidation, loginValidation };
+const teknisiValidation = Joi.object({
+    nama: Joi.string().max(100).required().messages({
+        'string.empty': 'Name Cannot be Empty',
+        'string.max': 'Name Must be at Most 100 Characters',
+        'any.required': 'Name is Required',
+    }),
+    nip: Joi.number().integer().required().messages({
+        'number.base': 'NIP Must be a Number',
+        'number.integer': 'NIP Must be an Integer',
+        'number.empty': 'NIP Cannot be Empty',
+        'any.required': 'NIP is Required',
+    }),
+    no_telp: Joi.number().integer().required().messages({
+        'number.base': 'Phone Number Must be a Number',
+        'number.integer': 'Phone Number Must be an Integer',
+        'number.empty': 'Phone Number Cannot be Empty',
+        'any.required': 'Phone Number is Required',
+    }),
+    role: Joi.string().valid('TEKNISI').required().messages({
+        'any.only': 'Role Must be TEKNISI',
+        'any.required': 'Role is Required',
+    }), 
+})
+
+export { registerValidation, loginValidation, teknisiValidation };
