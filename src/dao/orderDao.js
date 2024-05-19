@@ -18,6 +18,9 @@ const createOrderDao = async (orderData) => {
 
 const getAllOrderDao = async () => {
     return await prisma.order.findMany({
+        orderBy: {
+            status_id: 'desc',
+        },
         select: {
             id: true,
             nama: true,
@@ -35,7 +38,12 @@ const getAllOrderDao = async () => {
                     name: true,
                 },
             },
-            teknisi_id: true,
+            Teknisi: {
+                select: {
+                    id: true,
+                    nama: true,
+                }
+            }
         }
     });
 };
