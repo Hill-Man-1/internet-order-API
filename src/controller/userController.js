@@ -20,12 +20,10 @@ const loginUser = async (req, res, next) => {
             httpOnly: true
         });
         res.status(200).json({
+            message: "User Login successfully",
             code: "0",
             info: "OK",
-            data: {
-                id:user.id,
-                username:user.username,
-            },
+            data: user,
         });
     } catch (err) {
         next(err);

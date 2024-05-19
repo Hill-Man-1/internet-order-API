@@ -6,20 +6,17 @@ const authorizationAdmin = (req, res, next) => {
     const token = req.cookies.access_token;
 
     if (!token) {
-        throw new ErrorHandler(401, "1", "Unauthorize")
-        return next(error);
-    } 
+        return next(new ErrorHandler(401, "1", "Unauthorized Access"));
+    }
 
     try {
         const decodedToken = jwt.verify(token, JWT_KEY);
         if (decodedToken.role !== 'ADMIN') {
-            throw new ErrorHandler(401, "1", "Authentication required")
-            return next(error);
+            return next(new ErrorHandler(403, "1", "Role Must Be ADMIN"));
         }
         next();
     } catch (error) {
-        const customError = new ErrorHandler(400, false, error.message);
-        next(customError);
+        return next(new ErrorHandler(500, "1", error.message));
     }
 };
 
@@ -27,20 +24,17 @@ const authorizationCustomer = (req, res, next) => {
     const token = req.cookies.access_token;
 
     if (!token) {
-        throw new ErrorHandler(401, "1", "Unauthorize")
-        return next(error);
+        return next(new ErrorHandler(401, "1", "Unauthorized Access"));
     }
 
     try {
         const decodedToken = jwt.verify(token, JWT_KEY);
         if (decodedToken.role !== 'CUSTOMER') {
-            throw new ErrorHandler(401, "1", "Authentication required")
-            return next(error);
+            return next(new ErrorHandler(403, "1", "Role Must Be CUSTOMER"));
         }
         next();
     } catch (error) {
-        const customError = new ErrorHandler(400, false, error.message);
-        next(customError);
+        return next(new ErrorHandler(500, "1", error.message));
     }
 };
 
@@ -48,20 +42,17 @@ const authorizationTeknisi = (req, res, next) => {
     const token = req.cookies.access_token;
 
     if (!token) {
-        throw new ErrorHandler(401, "1", "Unauthorize")
-        return next(error);
+        return next(new ErrorHandler(401, "1", "Unauthorized Access"));
     }
 
     try {
         const decodedToken = jwt.verify(token, JWT_KEY);
         if (decodedToken.role !== 'TEKNISI') {
-            throw new ErrorHandler(401, "1", "Authentication required")
-            return next(error);
+            return next(new ErrorHandler(403, "1", "Role Must Be TEKNISI"));
         }
         next();
     } catch (error) { 
-        const customError = new ErrorHandler(400, false, error.message);
-        next(customError);
+        return next(new ErrorHandler(500, "1", error.message));
     }
 };
 
