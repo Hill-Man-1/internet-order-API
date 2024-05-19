@@ -164,4 +164,45 @@ const getOrderByIdDao = async (orderId) => {
     });
 };
 
-export { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao };
+const getOrderByCustomerIdDao = async (userId) => {
+    return await prisma.order.findMany({
+        where: {
+            user_id: userId
+        },
+        select: {
+            id: true,
+            nama: true,
+            email: true,
+            upload_identity: true,
+            kota: true,
+            kecamatan: true,
+            jalan: true,
+            reject_reason: true,
+            package_id: true,
+            status_id: true,
+            teknisi_id: true,
+            Status: {
+                select: {
+                    id: true,
+                    name: true
+                }
+            },
+            Package: {
+                select: {
+                    id: true,
+                    nama: true,
+                    harga: true,
+                    deskripsi: true
+                }
+            },
+            Teknisi: {
+                select: {
+                    id: true,
+                    nama: true
+                }
+            }
+        }
+    });
+};
+
+export { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao, getOrderByCustomerIdDao };

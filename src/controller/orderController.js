@@ -1,4 +1,4 @@
-import { createOrderService, getAllOrderService, updateOrderService, getOrderByIdService } from '../service/orderService.js';
+import { createOrderService, getAllOrderService, updateOrderService, getOrderByIdService, getOrderByCustomerIdService } from '../service/orderService.js';
 import { updateOrderValidation } from '../validation/orderValidation.js';
 
 const createOrder = async (req, res, next) => {
@@ -68,4 +68,18 @@ const getOrderById = async (req, res, next) => {
     }
 };
 
-export { createOrder, getAllOrder, updateOrder, getOrderById };
+const getOrderByCustomerId = async (req, res, next) => {
+    try {
+        const userId = req.user.id;
+        const orders = await getOrderByCustomerIdService(userId);
+        res.status(200).json({
+            code: "0",
+            info: "OK",
+            data: orders
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
+export { createOrder, getAllOrder, updateOrder, getOrderById, getOrderByCustomerId };
