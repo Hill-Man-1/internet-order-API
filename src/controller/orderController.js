@@ -1,4 +1,5 @@
-import { createOrderService, getAllOrderService } from '../service/orderService.js';
+import { createOrderService, getAllOrderService, updateOrderService } from '../service/orderService.js';
+import { updateOrderValidation } from '../validation/orderValidation.js';
 
 const createOrder = async (req, res, next) => {
     try {
@@ -27,4 +28,32 @@ const getAllOrder = async (req, res, next) => {
     }
 };
 
-export { createOrder, getAllOrder };
+const updateOrder = async (req, res, next) => {
+    const { orderId } = req.params;
+    const { status_id, teknisi_id, reject_reason } = req.body;
+
+    const updateData = {};
+    if (status_id !== undefined) updateData.status_id = parseInt(status_id);
+    if (teknisi_id !== undefined) updateData.teknisi_id = parseInt(teknisi_id);
+    if (reject_reason !== undefined) updateData.reject_reason = reject_reason;
+
+    const { error } = updateOrderValidation.validate(updateData);
+    if (error) {
+        return next(new ErrorHandler(400, "1", error.details[0].message));
+    }
+
+    try {
+        const updatedOrder = await updateOrderService(parseInt(orderId), updateData);
+        res.status(200).json({
+            code: "0",
+            info: "OK",
+            data: updatedOrder,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
+
+
+export { createOrder, getAllOrder, updateOrder };
