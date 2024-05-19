@@ -1,4 +1,4 @@
-import { createPackageService } from '../service/packageService.js';
+import { createPackageService, getAllPackageService } from '../service/packageService.js';
 
 const createPackage = async (req, res, next) => {
     try {
@@ -14,4 +14,17 @@ const createPackage = async (req, res, next) => {
     }
 };
 
-export { createPackage };
+const getAllPackage = async (req, res, next) => {
+    try {
+        const packages = await getAllPackageService();
+        res.status(200).json({
+            code: "0",
+            info: "OK",
+            data: packages
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
+export { createPackage, getAllPackage };

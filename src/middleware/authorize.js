@@ -12,6 +12,7 @@ const authorizationAdmin = (req, res, next) => {
     try {
         const decodedToken = jwt.verify(token, JWT_KEY);
         if (decodedToken.role !== 'ADMIN') {
+            console.log("Role is not ADMIN");
             return next(new ErrorHandler(403, "1", "Role Must Be ADMIN"));
         }
         next();
@@ -24,12 +25,14 @@ const authorizationCustomer = (req, res, next) => {
     const token = req.cookies.access_token;
 
     if (!token) {
+        console.log("No token provided");
         return next(new ErrorHandler(401, "1", "Unauthorized Access"));
     }
 
     try {
         const decodedToken = jwt.verify(token, JWT_KEY);
         if (decodedToken.role !== 'CUSTOMER') {
+            console.log("Role is not CUSTOMER");
             return next(new ErrorHandler(403, "1", "Role Must Be CUSTOMER"));
         }
         next();
@@ -42,12 +45,14 @@ const authorizationTeknisi = (req, res, next) => {
     const token = req.cookies.access_token;
 
     if (!token) {
+        console.log("No token provided");
         return next(new ErrorHandler(401, "1", "Unauthorized Access"));
     }
 
     try {
         const decodedToken = jwt.verify(token, JWT_KEY);
         if (decodedToken.role !== 'TEKNISI') {
+            console.log("Role is not TEKNISI");
             return next(new ErrorHandler(403, "1", "Role Must Be TEKNISI"));
         }
         next();
@@ -56,4 +61,24 @@ const authorizationTeknisi = (req, res, next) => {
     }
 };
 
-export { authorizationAdmin, authorizationCustomer, authorizationTeknisi };
+const authorizationAdminOrCustomer = (req, res, next) => {
+    const token = req.cookies.access_token;
+
+    if (!token) {
+        console.log("No token provided");
+        return next(new ErrorHandler(401, "1", "Unauthorized Access"));
+    }
+
+    try {
+        const decodedToken = jwt.verify(token, JWT_KEY);
+        if (decodedToken.role !== 'ADMIN' && decodedToken.role !== 'CUSTOMER') {
+            console.log("Role is not ADMIN or CUSTOMER");
+            return next(new ErrorHandler(403, "1", "Role Must Be ADMIN or CUSTOMER"));
+        }
+        next();
+    } catch (error) {
+        return next(new ErrorHandler(500, "1", error.message));
+    }
+};
+
+export { authorizationAdmin, authorizationCustomer, authorizationTeknisi, authorizationAdminOrCustomer };

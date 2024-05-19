@@ -6,7 +6,7 @@ const authenticationMiddleware = (req, res, next) => {
     const token = req.cookies.access_token;
 
     if (!token) {
-        return next(new ErrorHandler(401, "1", "Unauthorized Access.."));
+        return next(new ErrorHandler(401, "1", "Unauthorized Access"));
     }
 
     try {
@@ -16,6 +16,6 @@ const authenticationMiddleware = (req, res, next) => {
     } catch (error) {
         return next(new ErrorHandler(500, "1", "Invalid Request..!"));
     }
-}
+};
 
 export default authenticationMiddleware;

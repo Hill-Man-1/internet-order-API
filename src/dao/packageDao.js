@@ -12,4 +12,15 @@ const createPackageDao = async (packageData) => {
     });
 };
 
-export { createPackageDao };
+const getAllPackageDao = async () => {
+    return await prisma.package.findMany({
+        select: {
+            id: true,
+            nama: true,
+            harga: true,
+            deskripsi: true
+        }
+    });
+};
+
+export { createPackageDao, getAllPackageDao };
