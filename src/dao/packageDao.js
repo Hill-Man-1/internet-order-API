@@ -14,11 +14,15 @@ const createPackageDao = async (packageData) => {
 
 const getAllPackageDao = async () => {
     return await prisma.package.findMany({
+        orderBy: {
+            jumlah_penjualan: 'desc'
+        },
         select: {
             id: true,
             nama: true,
             harga: true,
-            deskripsi: true
+            deskripsi: true,
+            jumlah_penjualan: true
         }
     });
 };
