@@ -16,4 +16,28 @@ const createOrderDao = async (orderData) => {
     });
 };
 
-export { createOrderDao };
+const getAllOrderDao = async () => {
+    return await prisma.order.findMany({
+        select: {
+            id: true,
+            nama: true,
+            email: true,
+            upload_identity: true,
+            kota: true,
+            kecamatan: true,
+            jalan: true,
+            reject_reason: true,
+            package_id: true,
+            user_id: true,
+            Status: {
+                select: {
+                    id: true,
+                    name: true,
+                },
+            },
+            teknisi_id: true,
+        }
+    });
+};
+
+export { createOrderDao, getAllOrderDao };

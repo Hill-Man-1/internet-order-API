@@ -1,5 +1,5 @@
 import { orderValidation } from '../validation/orderValidation.js';
-import { createOrderDao } from '../dao/orderDao.js';
+import { createOrderDao, getAllOrderDao } from '../dao/orderDao.js';
 import { ErrorHandler } from '../middleware/errorHandler.js';
 
 const createOrderService = async (userData, userId) => {
@@ -24,4 +24,14 @@ const createOrderService = async (userData, userId) => {
     return order;
 };
 
-export { createOrderService };
+const getAllOrderService = async () => {
+    try {
+        const orders = await getAllOrderDao();
+        return orders;
+    } catch (error) {
+        console.error("Error fetching orders:", error);
+        throw new ErrorHandler(500, "1", "Failed to fetch orders");
+    }
+};
+
+export { createOrderService, getAllOrderService };
