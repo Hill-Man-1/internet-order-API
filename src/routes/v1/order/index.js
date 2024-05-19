@@ -1,7 +1,7 @@
 import express from 'express';
-import { createOrder, getAllOrder, updateOrder, getOrderById, getOrderByCustomerId } from '../../../controller/orderController.js';
+import { createOrder, getAllOrder, updateOrder, getOrderById, getOrderByCustomerId, getOrderByTeknisiId } from '../../../controller/orderController.js';
 import authenticationMiddleware from '../../../middleware/auth.js';
-import { authorizationCustomer, authorizationAdmin } from '../../../middleware/authorize.js';
+import { authorizationCustomer, authorizationAdmin, authorizationTeknisi } from '../../../middleware/authorize.js';
 
 const orderRouter = express.Router();
 
@@ -10,6 +10,7 @@ orderRouter.get('/list', authenticationMiddleware, authorizationAdmin, getAllOrd
 orderRouter.get('/list/:orderId', authenticationMiddleware, authorizationAdmin, getOrderById)
 orderRouter.put('/update/:orderId', authenticationMiddleware, authorizationAdmin, updateOrder)
 orderRouter.get('/my-order', authenticationMiddleware, authorizationCustomer, getOrderByCustomerId)
+orderRouter.get('/teknisi-order', authenticationMiddleware, authorizationTeknisi, getOrderByTeknisiId)
 
 
 
