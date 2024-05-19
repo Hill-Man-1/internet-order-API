@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import { registerValidation, loginValidation, teknisiValidation } from '../validation/userValidation.js';
-import { checkUsernameDao, registerUserDao, loginDao, createTeknisiDao, updateTotalHandlingDao, checkTeknisiByUserIdDao } from '../dao/userDao.js';
+import { checkUsernameDao, registerUserDao, loginDao, createTeknisiDao, checkTeknisiByUserIdDao } from '../dao/userDao.js';
 import { ErrorHandler } from '../middleware/errorHandler.js';
 import generateToken from '../utils/generateToken.js';
 
@@ -68,8 +68,6 @@ const createTeknisiService = async (teknisiData, userId) => {
     }
 
     const teknisi = await createTeknisiDao(value);
-
-    const updatedTeknisi = await updateTotalHandlingDao(teknisi.id);
 
     return updatedTeknisi;
 };

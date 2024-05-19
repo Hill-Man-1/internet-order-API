@@ -33,4 +33,16 @@ const orderValidation = Joi.object({
     }),
 });
 
-export { orderValidation };
+const updateOrderValidation = Joi.object({
+    status_id: Joi.number().integer().optional().messages({
+        'number.base': 'Status ID must be an integer',
+    }),
+    teknisi_id: Joi.number().integer().optional().messages({
+        'number.base': 'Teknisi ID must be an integer',
+    }),
+    reject_reason: Joi.string().optional().messages({
+        'string.base': 'Reject reason must be a string',
+    }),
+});
+
+export { orderValidation, updateOrderValidation };
