@@ -23,7 +23,10 @@ const loginUser = async (req, res, next) => {
             message: "User Login successfully",
             code: "0",
             info: "OK",
-            data: user,
+            data: {
+                id: user.id,
+                username: user.username,
+            },
         });
     } catch (err) {
         next(err);
