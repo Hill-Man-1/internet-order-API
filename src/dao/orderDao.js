@@ -118,4 +118,50 @@ const updateOrderDao = async (orderId, updateData) => {
     return updatedOrder;
 };
 
-export { createOrderDao, getAllOrderDao, updateOrderDao };
+const getOrderByIdDao = async (orderId) => {
+    return await prisma.order.findUnique({
+        where: { id: orderId },
+        select: {
+            id: true,
+            nama: true,
+            email: true,
+            upload_identity: true,
+            kota: true,
+            kecamatan: true,
+            jalan: true,
+            reject_reason: true,
+            package_id: true,
+            user_id: true,
+            status_id: true,
+            teknisi_id: true,
+            Status: {
+                select: {
+                    id: true,
+                    name: true,
+                },
+            },
+            Package: {
+                select: {
+                    id: true,
+                    nama: true,
+                    harga: true,
+                    deskripsi: true,
+                },
+            },
+            Teknisi: {
+                select: {
+                    id: true,
+                    nama: true,
+                },
+            },
+            User: {
+                select: {
+                    id: true,
+                    username: true,
+                },
+            }
+        }
+    });
+};
+
+export { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao };
