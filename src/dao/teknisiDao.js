@@ -30,4 +30,18 @@ const getTeknisiDescDao = async (teknisiData) => {
     });
 }
 
-export { getTeknisiDao, getTeknisiDescDao }
+const getTeknisiByIdDao = async (id) => {
+    return await prisma.teknisi.findUnique({
+        where: { id: id },
+        select: {
+            id: true,
+            nama: true,
+            nip: true,
+            no_telp: true,
+            total_handling: true,
+            user_id: true
+        }
+    });
+};
+
+export { getTeknisiDao, getTeknisiDescDao, getTeknisiByIdDao }

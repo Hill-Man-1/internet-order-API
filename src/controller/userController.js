@@ -19,8 +19,6 @@ const loginUser = async (req, res, next) => {
         res.cookie('access_token', token, {
             httpOnly: true
         });
-        // delete user.role;
-        // delete user.password;
         res.status(200).json({
             code: "0",
             info: "OK",

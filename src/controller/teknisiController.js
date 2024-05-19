@@ -1,4 +1,4 @@
-import { getAllTeknisiService, getTeknisiDescService } from "../service/teknisiService.js";
+import { getAllTeknisiService, getTeknisiDescService, getTeknisiByIdService } from "../service/teknisiService.js";
 
 
 const getAllTeknisi = async (req, res, next) => {
@@ -27,4 +27,18 @@ const getTeknisiDesc = async (req, res, next) => {
     }
 }
 
-export { getAllTeknisi,getTeknisiDesc}
+const getTeknisiById = async (req, res, next) => {
+    try {
+        const teknisiId = parseInt(req.params.id);
+        const teknisi = await getTeknisiByIdService(teknisiId);
+        res.status(200).json({
+            code: "0",
+            info: "OK",
+            data: teknisi
+        });
+    } catch (err) {
+        next(err);
+    }
+}
+
+export { getAllTeknisi,getTeknisiDesc, getTeknisiById}
