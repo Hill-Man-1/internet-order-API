@@ -9,6 +9,6 @@ const teknisiRoute = express.Router();
 
 teknisiRoute.get('/list',authenticationMiddleware ,authorizationAdmin ,getAllTeknisi)
 teknisiRoute.get('/list-desc', authenticationMiddleware,authorizationAdmin ,getTeknisiDesc)
-teknisiRoute.get('/list/:id',authenticationMiddleware ,authorizationAdmin ,getTeknisiById)
+teknisiRoute.get('/list/:teknisiId',authenticationMiddleware ,authorizationAdmin ,getTeknisiById)
 
 export default teknisiRoute 

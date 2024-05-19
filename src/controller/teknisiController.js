@@ -29,7 +29,7 @@ const getTeknisiDesc = async (req, res, next) => {
 
 const getTeknisiById = async (req, res, next) => {
     try {
-        const teknisiId = parseInt(req.params.id);
+        const teknisiId = parseInt(req.params.teknisiId);
         const teknisi = await getTeknisiByIdService(teknisiId);
         res.status(200).json({
             code: "0",

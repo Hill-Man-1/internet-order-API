@@ -1,5 +1,5 @@
 import { orderValidation } from '../validation/orderValidation.js';
-import { createOrderDao, getAllOrderDao, updateOrderDao } from '../dao/orderDao.js';
+import { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao } from '../dao/orderDao.js';
 import { ErrorHandler } from '../middleware/errorHandler.js';
 
 const createOrderService = async (userData, userId) => {
@@ -42,4 +42,12 @@ const updateOrderService = async (orderId, updateData) => {
     }
 };
 
-export { createOrderService, getAllOrderService, updateOrderService };
+const getOrderByIdService = async (orderId) => {
+    const order = await getOrderByIdDao(orderId);
+    if (!order) {
+        throw new ErrorHandler(404, "1", "Order not found");
+    }
+    return order;
+};
+
+export { createOrderService, getAllOrderService, updateOrderService, getOrderByIdService };
