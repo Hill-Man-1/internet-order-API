@@ -14,4 +14,20 @@ const getTeknisiDao = async (teknisiData) => {
     });
 }
 
-export { getTeknisiDao }
+const getTeknisiDescDao = async (teknisiData) => {
+    return await prisma.teknisi.findMany({
+        orderBy: {
+            total_handling: 'desc',
+        },
+        select: {
+            id: true,
+            nama: true,
+            nip: true,
+            no_telp: true,
+            total_handling: true,
+            user_id: true
+        }
+    });
+}
+
+export { getTeknisiDao, getTeknisiDescDao }
