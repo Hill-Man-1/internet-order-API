@@ -154,7 +154,8 @@ exports.Prisma.PackageScalarFieldEnum = {
   id: 'id',
   nama: 'nama',
   harga: 'harga',
-  deskripsi: 'deskripsi'
+  deskripsi: 'deskripsi',
+  jumlah_penjualan: 'jumlah_penjualan'
 };
 
 exports.Prisma.StatusScalarFieldEnum = {

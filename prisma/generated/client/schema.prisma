@@ -49,11 +49,12 @@ model Order {
 }
 
 model Package {
-  id        Int     @id @default(autoincrement())
-  nama      String
-  harga     String
-  deskripsi String
-  Orders    Order[]
+  id               Int     @id @default(autoincrement())
+  nama             String
+  harga            String
+  deskripsi        String
+  jumlah_penjualan Int     @default(0)
+  Orders           Order[]
 }
 
 model Status {

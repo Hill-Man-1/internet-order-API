@@ -4537,10 +4537,12 @@ export namespace Prisma {
 
   export type PackageAvgAggregateOutputType = {
     id: number | null
+    jumlah_penjualan: number | null
   }
 
   export type PackageSumAggregateOutputType = {
     id: number | null
+    jumlah_penjualan: number | null
   }
 
   export type PackageMinAggregateOutputType = {
@@ -4548,6 +4550,7 @@ export namespace Prisma {
     nama: string | null
     harga: string | null
     deskripsi: string | null
+    jumlah_penjualan: number | null
   }
 
   export type PackageMaxAggregateOutputType = {
@@ -4555,6 +4558,7 @@ export namespace Prisma {
     nama: string | null
     harga: string | null
     deskripsi: string | null
+    jumlah_penjualan: number | null
   }
 
   export type PackageCountAggregateOutputType = {
@@ -4562,16 +4566,19 @@ export namespace Prisma {
     nama: number
     harga: number
     deskripsi: number
+    jumlah_penjualan: number
     _all: number
   }
 
 
   export type PackageAvgAggregateInputType = {
     id?: true
+    jumlah_penjualan?: true
   }
 
   export type PackageSumAggregateInputType = {
     id?: true
+    jumlah_penjualan?: true
   }
 
   export type PackageMinAggregateInputType = {
@@ -4579,6 +4586,7 @@ export namespace Prisma {
     nama?: true
     harga?: true
     deskripsi?: true
+    jumlah_penjualan?: true
   }
 
   export type PackageMaxAggregateInputType = {
@@ -4586,6 +4594,7 @@ export namespace Prisma {
     nama?: true
     harga?: true
     deskripsi?: true
+    jumlah_penjualan?: true
   }
 
   export type PackageCountAggregateInputType = {
@@ -4593,6 +4602,7 @@ export namespace Prisma {
     nama?: true
     harga?: true
     deskripsi?: true
+    jumlah_penjualan?: true
     _all?: true
   }
 
@@ -4687,6 +4697,7 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan: number
     _count: PackageCountAggregateOutputType | null
     _avg: PackageAvgAggregateOutputType | null
     _sum: PackageSumAggregateOutputType | null
@@ -4713,6 +4724,7 @@ export namespace Prisma {
     nama?: boolean
     harga?: boolean
     deskripsi?: boolean
+    jumlah_penjualan?: boolean
     Orders?: boolean | Package$OrdersArgs<ExtArgs>
     _count?: boolean | PackageCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["package"]>
@@ -4722,6 +4734,7 @@ export namespace Prisma {
     nama?: boolean
     harga?: boolean
     deskripsi?: boolean
+    jumlah_penjualan?: boolean
   }
 
 
@@ -4741,6 +4754,7 @@ export namespace Prisma {
       nama: string
       harga: string
       deskripsi: string
+      jumlah_penjualan: number
     }, ExtArgs["result"]["package"]>
     composites: {}
   }
@@ -5166,6 +5180,7 @@ export namespace Prisma {
     readonly nama: FieldRef<"Package", 'String'>
     readonly harga: FieldRef<"Package", 'String'>
     readonly deskripsi: FieldRef<"Package", 'String'>
+    readonly jumlah_penjualan: FieldRef<"Package", 'Int'>
   }
     
 
@@ -6549,7 +6564,8 @@ export namespace Prisma {
     id: 'id',
     nama: 'nama',
     harga: 'harga',
-    deskripsi: 'deskripsi'
+    deskripsi: 'deskripsi',
+    jumlah_penjualan: 'jumlah_penjualan'
   };
 
   export type PackageScalarFieldEnum = (typeof PackageScalarFieldEnum)[keyof typeof PackageScalarFieldEnum]
@@ -6880,6 +6896,7 @@ export namespace Prisma {
     nama?: StringFilter<"Package"> | string
     harga?: StringFilter<"Package"> | string
     deskripsi?: StringFilter<"Package"> | string
+    jumlah_penjualan?: IntFilter<"Package"> | number
     Orders?: OrderListRelationFilter
   }
 
@@ -6888,6 +6905,7 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
+    jumlah_penjualan?: SortOrder
     Orders?: OrderOrderByRelationAggregateInput
   }
 
@@ -6899,6 +6917,7 @@ export namespace Prisma {
     nama?: StringFilter<"Package"> | string
     harga?: StringFilter<"Package"> | string
     deskripsi?: StringFilter<"Package"> | string
+    jumlah_penjualan?: IntFilter<"Package"> | number
     Orders?: OrderListRelationFilter
   }, "id">
 
@@ -6907,6 +6926,7 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
+    jumlah_penjualan?: SortOrder
     _count?: PackageCountOrderByAggregateInput
     _avg?: PackageAvgOrderByAggregateInput
     _max?: PackageMaxOrderByAggregateInput
@@ -6922,6 +6942,7 @@ export namespace Prisma {
     nama?: StringWithAggregatesFilter<"Package"> | string
     harga?: StringWithAggregatesFilter<"Package"> | string
     deskripsi?: StringWithAggregatesFilter<"Package"> | string
+    jumlah_penjualan?: IntWithAggregatesFilter<"Package"> | number
   }
 
   export type StatusWhereInput = {
@@ -7185,6 +7206,7 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan?: number
     Orders?: OrderCreateNestedManyWithoutPackageInput
   }
 
@@ -7193,6 +7215,7 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan?: number
     Orders?: OrderUncheckedCreateNestedManyWithoutPackageInput
   }
 
@@ -7200,6 +7223,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
     Orders?: OrderUpdateManyWithoutPackageNestedInput
   }
 
@@ -7208,6 +7232,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
     Orders?: OrderUncheckedUpdateManyWithoutPackageNestedInput
   }
 
@@ -7216,12 +7241,14 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan?: number
   }
 
   export type PackageUpdateManyMutationInput = {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
   }
 
   export type PackageUncheckedUpdateManyInput = {
@@ -7229,6 +7256,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
   }
 
   export type StatusCreateInput = {
@@ -7577,10 +7605,12 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
+    jumlah_penjualan?: SortOrder
   }
 
   export type PackageAvgOrderByAggregateInput = {
     id?: SortOrder
+    jumlah_penjualan?: SortOrder
   }
 
   export type PackageMaxOrderByAggregateInput = {
@@ -7588,6 +7618,7 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
+    jumlah_penjualan?: SortOrder
   }
 
   export type PackageMinOrderByAggregateInput = {
@@ -7595,10 +7626,12 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
+    jumlah_penjualan?: SortOrder
   }
 
   export type PackageSumOrderByAggregateInput = {
     id?: SortOrder
+    jumlah_penjualan?: SortOrder
   }
 
   export type StatusCountOrderByAggregateInput = {
@@ -8323,6 +8356,7 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan?: number
   }
 
   export type PackageUncheckedCreateWithoutOrdersInput = {
@@ -8330,6 +8364,7 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan?: number
   }
 
   export type PackageCreateOrConnectWithoutOrdersInput = {
@@ -8414,6 +8449,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
   }
 
   export type PackageUncheckedUpdateWithoutOrdersInput = {
@@ -8421,6 +8457,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
   }
 
   export type StatusUpsertWithoutOrdersInput = {
