@@ -1,11 +1,16 @@
 import { orderValidation } from '../validation/orderValidation.js';
-import { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao, getOrderByCustomerIdDao, getOrderByTeknisiIdDao } from '../dao/orderDao.js';
+import { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao, getOrderByCustomerIdDao, getOrderByTeknisiIdDao, checkPackageExistsDao } from '../dao/orderDao.js';
 import { ErrorHandler } from '../middleware/errorHandler.js';
 
 const createOrderService = async (userData, userId) => {
     const { value, error } = orderValidation.validate(userData);
     if (error) {
         throw new ErrorHandler(400, "1", error.details[0].message);
+    }
+
+    const packageExists = await checkPackageExistsDao(value.package_id);
+    if (!packageExists) {
+        throw new ErrorHandler(400, "1", "Invalid package_id");
     }
 
     const orderData = {
@@ -16,13 +21,13 @@ const createOrderService = async (userData, userId) => {
         kecamatan: value.kecamatan,
         jalan: value.jalan,
         package_id: value.package_id,
-        user_id: userId,
-        status_id: 2,
+        user_id: userId
     };
 
     const order = await createOrderDao(orderData);
     return order;
 };
+
 
 const getAllOrderService = async () => {
     try {

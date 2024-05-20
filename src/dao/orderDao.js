@@ -16,6 +16,12 @@ const createOrderDao = async (orderData) => {
     });
 };
 
+const checkPackageExistsDao = async (packageId) => {
+    return await prisma.package.count({
+        where: { id: packageId }
+    });
+};
+
 const getAllOrderDao = async () => {
     return await prisma.order.findMany({
         orderBy: {
@@ -258,4 +264,4 @@ const getOrderByTeknisiIdDao = async (teknisiId) => {
     });
 };
 
-export { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao, getOrderByCustomerIdDao, getOrderByTeknisiIdDao };
+export { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao, getOrderByCustomerIdDao, getOrderByTeknisiIdDao, checkPackageExistsDao };
