@@ -68,8 +68,8 @@ const createTeknisiService = async (teknisiData, userId) => {
     }
 
     const teknisi = await createTeknisiDao(value);
-
-    return updatedTeknisi;
+    
+    return teknisi
 };
 
 
