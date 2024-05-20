@@ -23,7 +23,7 @@ model Teknisi {
   nama           String
   nip            Int
   no_telp        Int
-  total_handling Int?
+  total_handling Int     @default(0)
   user_id        Int     @unique
   User           User    @relation(fields: [user_id], references: [id])
   Orders         Order[]

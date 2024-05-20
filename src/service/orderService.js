@@ -45,7 +45,7 @@ const updateOrderService = async (orderId, updateData) => {
     } catch (error) {
         throw new ErrorHandler(500, "1", "Failed to update order");
     }
-};
+};  
 
 const getOrderByIdService = async (orderId) => {
     const order = await getOrderByIdDao(orderId);

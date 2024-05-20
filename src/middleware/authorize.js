@@ -55,8 +55,14 @@ const authorizationTeknisi = (req, res, next) => {
             console.log("Role is not TEKNISI");
             return next(new ErrorHandler(403, "1", "Role Must Be TEKNISI"));
         }
+
+        if (!decodedToken.teknisiId) {
+            return next(new ErrorHandler(403, "1", "Teknisi ID not found in token"));
+        }
+
+        req.user = decodedToken;
         next();
-    } catch (error) { 
+    } catch (error) {
         return next(new ErrorHandler(500, "1", error.message));
     }
 };

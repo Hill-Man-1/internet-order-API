@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import JWT_KEY from '../config/jwt/jwt.js';
-import { ErrorHandler } from '../middleware/errorHandler.js';
+import { ErrorHandler } from './errorHandler.js';
 
 const authenticationMiddleware = (req, res, next) => {
     const token = req.cookies.access_token;

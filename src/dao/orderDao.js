@@ -86,6 +86,7 @@ const updateOrderDao = async (orderId, updateData) => {
                 select: {
                     id: true,
                     nama: true,
+                    total_handling: true
                 }
             }
         }
@@ -93,21 +94,14 @@ const updateOrderDao = async (orderId, updateData) => {
 
     if (existingOrder.teknisi_id !== updatedOrder.teknisi_id) {
         if (existingOrder.teknisi_id) {
-            const existingTeknisi = await prisma.teknisi.findUnique({
+            await prisma.teknisi.update({
                 where: { id: existingOrder.teknisi_id },
-                select: { total_handling: true }
-            });
-
-            if (existingTeknisi.total_handling > 0) {
-                await prisma.teknisi.update({
-                    where: { id: existingOrder.teknisi_id },
-                    data: {
-                        total_handling: {
-                            decrement: 1
-                        }
+                data: {
+                    total_handling: {
+                        decrement: 1
                     }
-                });
-            }
+                }
+            });
         }
         if (updatedOrder.teknisi_id) {
             await prisma.teknisi.update({
@@ -219,9 +213,7 @@ const getOrderByCustomerIdDao = async (userId) => {
 
 const getOrderByTeknisiIdDao = async (teknisiId) => {
     return await prisma.order.findMany({
-        where: {
-            teknisi_id: teknisiId
-        },
+        where: { teknisi_id: teknisiId },
         select: {
             id: true,
             nama: true,
@@ -232,13 +224,14 @@ const getOrderByTeknisiIdDao = async (teknisiId) => {
             jalan: true,
             reject_reason: true,
             package_id: true,
+            user_id: true,
             status_id: true,
             teknisi_id: true,
             Status: {
                 select: {
                     id: true,
-                    name: true
-                }
+                    name: true,
+                },
             },
             Package: {
                 select: {

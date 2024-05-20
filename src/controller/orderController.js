@@ -84,7 +84,7 @@ const getOrderByCustomerId = async (req, res, next) => {
 
 const getOrderByTeknisiId = async (req, res, next) => {
     try {
-        const teknisiId = req.user.id;
+        const teknisiId = req.user.teknisiId;
         const orders = await getOrderByTeknisiIdService(teknisiId);
         res.status(200).json({
             code: "0",
