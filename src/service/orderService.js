@@ -1,5 +1,5 @@
-import { orderValidation } from '../validation/orderValidation.js';
-import { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao, getOrderByCustomerIdDao, getOrderByTeknisiIdDao, checkPackageExistsDao } from '../dao/orderDao.js';
+import { orderValidation, updateCustomerOrderValidation } from '../validation/orderValidation.js';
+import { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao, getOrderByCustomerIdDao, getOrderByTeknisiIdDao, checkPackageExistsDao, updateOrderByCustomerDao, getOrderIdByUserIdDao } from '../dao/orderDao.js';
 import { ErrorHandler } from '../middleware/errorHandler.js';
 
 const createOrderService = async (userData, userId) => {
@@ -73,4 +73,23 @@ const getOrderByTeknisiIdService = async (teknisiId) => {
     }
 };
 
-export { createOrderService, getAllOrderService, updateOrderService, getOrderByIdService, getOrderByCustomerIdService, getOrderByTeknisiIdService };
+const updateOrderByCustomerService = async (userId, updateData) => {
+    const { error } = updateCustomerOrderValidation.validate(updateData);
+    if (error) {
+        throw new ErrorHandler(400, "1", error.details[0].message);
+    }
+
+    const orderId = await getOrderIdByUserIdDao(userId);
+    const updatedOrder = await updateOrderByCustomerDao(orderId, updateData);
+    return updatedOrder;
+};
+
+export { 
+    createOrderService, 
+    getAllOrderService, 
+    updateOrderService, 
+    getOrderByIdService, 
+    getOrderByCustomerIdService, 
+    getOrderByTeknisiIdService,
+    updateOrderByCustomerService
+};

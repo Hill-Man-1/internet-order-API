@@ -1,0 +1,303 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Order Internet",
+      "version": "1.0.0",
+      "description": "API for ordering internet services"
+    },
+    "paths": {
+      "/v1/auth/register": {
+        "post": {
+          "summary": "Register",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "username": "admin1",
+                    "password": "Adm1n!!!"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/auth/login": {
+        "post": {
+          "summary": "Login",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "username": "customer1",
+                    "password": "Cust0mer!"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/auth/teknisi": {
+        "post": {
+          "summary": "Create Teknisi",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nama": {
+                      "type": "string"
+                    },
+                    "nip": {
+                      "type": "string"
+                    },
+                    "no_telp": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "nama": "teknisi 3",
+                    "nip": "99999",
+                    "no_telp": "11223344"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/teknisi/list": {
+        "get": {
+          "summary": "Get Teknisi",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/teknisi/list/{id}": {
+        "get": {
+          "summary": "Get Teknisi by Id",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/package/create": {
+        "post": {
+          "summary": "Create Package",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nama": {
+                      "type": "string"
+                    },
+                    "harga": {
+                      "type": "integer"
+                    },
+                    "deskripsi": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "nama": "Paket Basic",
+                    "harga": 300000,
+                    "deskripsi": "Paket Basic merupakan paket yang cocok untuk digunakan 1-5 orang pengguna"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/package/list": {
+        "get": {
+          "summary": "Get Package",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/package/list-desc": {
+        "get": {
+          "summary": "Get Package Desc",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/order/my-order": {
+        "get": {
+          "summary": "Create Order",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/order/list": {
+        "get": {
+          "summary": "Get Order By Id",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/order/update/{id}": {
+        "put": {
+          "summary": "Update Order",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "teknisi_id": {
+                      "type": "integer"
+                    }
+                  },
+                  "example": {
+                    "teknisi_id": 7
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/order/list/{id}": {
+        "get": {
+          "summary": "Get Order by Id (Role Admin)",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/order/teknisi-order": {
+        "get": {
+          "summary": "Get Order by Id (Role Teknisi)",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/teknisi/list-desc": {
+        "get": {
+          "summary": "Get Teknisi Desc (Role Admin)",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/v1/order/update-data": {
+        "put": {
+          "summary": "Update Data Customer",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "nama": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "nama": "update customer 1"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    }
+  }
+  

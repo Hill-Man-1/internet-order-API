@@ -45,4 +45,27 @@ const updateOrderValidation = Joi.object({
     }),
 });
 
-export { orderValidation, updateOrderValidation };
+const updateCustomerOrderValidation = Joi.object({
+    nama: Joi.string().max(100).optional().messages({
+        'string.empty': 'Nama tidak boleh kosong',
+        'string.max': 'Nama tidak boleh lebih dari 100 karakter',
+    }),
+    email: Joi.string().email().optional().messages({
+        'string.email': 'Email tidak valid',
+        'string.empty': 'Email tidak boleh kosong',
+    }),
+    upload_identity: Joi.string().optional().messages({
+        'string.empty': 'Identitas tidak boleh kosong',
+    }),
+    kota: Joi.string().optional().messages({
+        'string.empty': 'Kota tidak boleh kosong',
+    }),
+    kecamatan: Joi.string().optional().messages({
+        'string.empty': 'Kecamatan tidak boleh kosong',
+    }),
+    jalan: Joi.string().optional().messages({
+        'string.empty': 'Jalan tidak boleh kosong',
+    }),
+});
+
+export { orderValidation, updateOrderValidation, updateCustomerOrderValidation };

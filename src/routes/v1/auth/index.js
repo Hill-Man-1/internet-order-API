@@ -10,7 +10,7 @@ const authRoute = express.Router();
 
 
 authRoute.post('/register', registerUser)
-authRoute.post('/login', limitMiddleware , login)
+authRoute.post('/login', limitMiddleware, login)
 authRoute.post('/logout',authenticationMiddleware, logoutUser)
 authRoute.post('/teknisi',authenticationMiddleware, authorizationTeknisi, createTeknisi)
 

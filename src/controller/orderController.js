@@ -1,5 +1,6 @@
-import { createOrderService, getAllOrderService, updateOrderService, getOrderByIdService, getOrderByCustomerIdService, getOrderByTeknisiIdService } from '../service/orderService.js';
-import { updateOrderValidation } from '../validation/orderValidation.js';
+import { ErrorHandler } from '../middleware/errorHandler.js';
+import { createOrderService, getAllOrderService, updateOrderService, getOrderByIdService, getOrderByCustomerIdService, getOrderByTeknisiIdService, updateOrderByCustomerService } from '../service/orderService.js';
+import { updateOrderValidation, updateCustomerOrderValidation } from '../validation/orderValidation.js';
 
 const createOrder = async (req, res, next) => {
     try {
@@ -84,7 +85,7 @@ const getOrderByCustomerId = async (req, res, next) => {
 
 const getOrderByTeknisiId = async (req, res, next) => {
     try {
-        const teknisiId = req.user.teknisiId;
+        const teknisiId = req.user.id;
         const orders = await getOrderByTeknisiIdService(teknisiId);
         res.status(200).json({
             code: "0",
@@ -96,4 +97,27 @@ const getOrderByTeknisiId = async (req, res, next) => {
     }
 };
 
-export { createOrder, getAllOrder, updateOrder, getOrderById, getOrderByCustomerId, getOrderByTeknisiId };
+const updateOrderByCustomer = async (req, res, next) => {
+    const userId = req.user.id; 
+    const { nama, email, upload_identity, kota, kecamatan, jalan } = req.body;
+
+    const updateData = { nama, email, upload_identity, kota, kecamatan, jalan };
+
+    const { error } = updateCustomerOrderValidation.validate(updateData);
+    if (error) {
+        return next(new ErrorHandler(400, "1", error.details[0].message));
+    }
+
+    try {
+        const updatedOrder = await updateOrderByCustomerService(userId, updateData);
+        res.status(200).json({
+            code: "0",
+            info: "OK",
+            data: updatedOrder,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
+export { createOrder, getAllOrder, updateOrder, getOrderById, getOrderByCustomerId, getOrderByTeknisiId, updateOrderByCustomer };

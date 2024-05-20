@@ -257,4 +257,47 @@ const getOrderByTeknisiIdDao = async (teknisiId) => {
     });
 };
 
-export { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao, getOrderByCustomerIdDao, getOrderByTeknisiIdDao, checkPackageExistsDao };
+const getOrderIdByUserIdDao = async (userId) => {
+    const order = await prisma.order.findFirst({
+        where: { user_id: userId },
+        select: { id: true },
+    });
+
+    if (!order) {
+        throw new Error('Order not found for this user');
+    }
+
+    return order.id;
+};
+
+const updateOrderByCustomerDao = async (orderId, updateData) => {
+    const updatedOrder = await prisma.order.update({
+        where: { id: orderId },
+        data: updateData,
+        select: {
+            id: true,
+            nama: true,
+            email: true,
+            upload_identity: true,
+            kota: true,
+            kecamatan: true,
+            jalan: true,
+            package_id: true,
+            user_id: true,
+        },
+    });
+
+    return updatedOrder;
+};
+
+export { 
+    createOrderDao, 
+    getAllOrderDao, 
+    updateOrderDao, 
+    getOrderByIdDao, 
+    getOrderByCustomerIdDao, 
+    getOrderByTeknisiIdDao, 
+    checkPackageExistsDao, 
+    getOrderIdByUserIdDao,
+    updateOrderByCustomerDao 
+};

@@ -29,7 +29,7 @@ const login = async (req, res, next) => {
         const token = jwt.sign(payload, JWT_KEY, { expiresIn: '1h' });
 
         res.cookie('access_token', token, { httpOnly: true });
-        res.status(200).json({ code: "0", info: "OK", data: { token } });
+        res.status(200).json({ code: "0", info: "OK", data: { username: user.username, role: user.role } });
     } catch (error) {
         return next(new ErrorHandler(500, "1", "Internal Server Error"));
     }
