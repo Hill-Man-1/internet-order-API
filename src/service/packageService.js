@@ -1,4 +1,4 @@
-import { createPackageDao, getAllPackageDao } from '../dao/packageDao.js';
+import { createPackageDao, getAllPackageDao, getAllPackageDescDao } from '../dao/packageDao.js';
 import { packageValidation } from '../validation/packageValidation.js';
 import { ErrorHandler } from '../middleware/errorHandler.js';
 
@@ -23,5 +23,14 @@ const getAllPackageService = async () => {
     }
 };
 
+const getAllPackageDescService = async () => {
+    try {
+        const packages = await getAllPackageDescDao();
+        return packages;
+    } catch (error) {
+        throw new ErrorHandler(500, "1", "Failed to fetch packages");
+    }
+};
 
-export { createPackageService, getAllPackageService };
+
+export { createPackageService, getAllPackageService, getAllPackageDescService };

@@ -14,6 +14,17 @@ const createPackageDao = async (packageData) => {
 
 const getAllPackageDao = async () => {
     return await prisma.package.findMany({
+        select: {
+            id: true,
+            nama: true,
+            harga: true,
+            deskripsi: true,
+        }
+    });
+};
+
+const getAllPackageDescDao = async () => {
+    return await prisma.package.findMany({
         orderBy: {
             jumlah_penjualan: 'desc'
         },
@@ -27,4 +38,4 @@ const getAllPackageDao = async () => {
     });
 };
 
-export { createPackageDao, getAllPackageDao };
+export { createPackageDao, getAllPackageDao, getAllPackageDescDao };
