@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import JWT_KEY from '../config/jwt/jwt.js';
-import { ErrorHandler } from './errorHandler.js';
+import { ErrorHandler } from '../middleware/errorHandler.js';
 
 const authenticationMiddleware = (req, res, next) => {
     const token = req.cookies.access_token;
@@ -11,10 +11,14 @@ const authenticationMiddleware = (req, res, next) => {
 
     try {
         const decodedToken = jwt.verify(token, JWT_KEY);
-        req.user = decodedToken;
+        req.user = {
+            id: decodedToken.userId,
+            role: decodedToken.role,
+            teknisiId: decodedToken.teknisiId || null
+        };
         next();
     } catch (error) {
-        return next(new ErrorHandler(500, "1", "Invalid Request..!"));
+        return next(new ErrorHandler(500, "1", "Invalid Request"));
     }
 };
 

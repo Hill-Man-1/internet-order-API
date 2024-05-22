@@ -8,11 +8,6 @@ const createOrderService = async (userData, userId) => {
         throw new ErrorHandler(400, "1", error.details[0].message);
     }
 
-    const packageExists = await checkPackageExistsDao(value.package_id);
-    if (!packageExists) {
-        throw new ErrorHandler(400, "1", "Invalid package_id");
-    }
-
     const orderData = {
         nama: value.nama,
         email: value.email,

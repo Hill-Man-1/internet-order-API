@@ -20,10 +20,10 @@ const getAllPackageDao = async () => {
             harga: true,
             deskripsi: true,
         }
-    });
+    }); 
 };
 
-const getAllPackageDescDao = async () => {
+const getAllPackageDescDao = async () => {  
     return await prisma.package.findMany({
         orderBy: {
             jumlah_penjualan: 'desc'
