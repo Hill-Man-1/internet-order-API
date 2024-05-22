@@ -29,8 +29,27 @@ const loginDao = async (username) => {
             password: true,
             role: true
         }
-    }); 
+    });  
 };
 
+const createTeknisiDao = async (teknisiData) => {
+    return await prisma.teknisi.create({
+        data: teknisiData,
+        select: {
+            id: true,
+            nama: true,
+            nip: true,
+            no_telp: true,
+            total_handling: true,
+            user_id: true
+        }
+    });
+};
 
-export { registerUserDao, checkUsernameDao, loginDao };
+const checkTeknisiByUserIdDao = async (userId) => {
+    return await prisma.teknisi.findUnique({
+        where: { user_id: userId },
+    });
+};
+
+export { registerUserDao, checkUsernameDao, loginDao, createTeknisiDao, checkTeknisiByUserIdDao  };

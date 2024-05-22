@@ -1,25 +1,26 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import {db} from './config/db/db.js';
+import { db } from './config/db/db.js';
 import middleWares from './middleware/index.js';
-import router from './routes/index.js'
+import router from './routes/index.js';
 import rootRoute from './routes/root.js';
 import { errorHandlerMiddleware } from './middleware/errorHandler.js';
+import swaggerSetup from './swagger.js';
 
-
-dotenv.config()
+dotenv.config();
 const app = express();
 
-db()
+db();
 
-app.use(express.json())
-middleWares(app)
-app.use(rootRoute)
+app.use(express.json());
+middleWares(app);
+app.use(rootRoute);
 app.use(router); 
 app.use(errorHandlerMiddleware);
+swaggerSetup(app);
 
-
-const PORT = process.env.PORT;
-app.listen(PORT, ()=> {
-    console.log(`server listening at http://localhost:${PORT}`)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server listening at http://localhost:${PORT}`);
+    console.log(`Documentation API di http://localhost:${PORT}/api-docs`);
 });

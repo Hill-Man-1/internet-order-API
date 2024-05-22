@@ -2392,12 +2392,16 @@ export namespace Prisma {
 
   export type TeknisiAvgAggregateOutputType = {
     id: number | null
+    nip: number | null
+    no_telp: number | null
     total_handling: number | null
     user_id: number | null
   }
 
   export type TeknisiSumAggregateOutputType = {
     id: number | null
+    nip: number | null
+    no_telp: number | null
     total_handling: number | null
     user_id: number | null
   }
@@ -2405,9 +2409,8 @@ export namespace Prisma {
   export type TeknisiMinAggregateOutputType = {
     id: number | null
     nama: string | null
-    password: string | null
-    nip: string | null
-    no_telp: string | null
+    nip: number | null
+    no_telp: number | null
     total_handling: number | null
     user_id: number | null
   }
@@ -2415,9 +2418,8 @@ export namespace Prisma {
   export type TeknisiMaxAggregateOutputType = {
     id: number | null
     nama: string | null
-    password: string | null
-    nip: string | null
-    no_telp: string | null
+    nip: number | null
+    no_telp: number | null
     total_handling: number | null
     user_id: number | null
   }
@@ -2425,7 +2427,6 @@ export namespace Prisma {
   export type TeknisiCountAggregateOutputType = {
     id: number
     nama: number
-    password: number
     nip: number
     no_telp: number
     total_handling: number
@@ -2436,12 +2437,16 @@ export namespace Prisma {
 
   export type TeknisiAvgAggregateInputType = {
     id?: true
+    nip?: true
+    no_telp?: true
     total_handling?: true
     user_id?: true
   }
 
   export type TeknisiSumAggregateInputType = {
     id?: true
+    nip?: true
+    no_telp?: true
     total_handling?: true
     user_id?: true
   }
@@ -2449,7 +2454,6 @@ export namespace Prisma {
   export type TeknisiMinAggregateInputType = {
     id?: true
     nama?: true
-    password?: true
     nip?: true
     no_telp?: true
     total_handling?: true
@@ -2459,7 +2463,6 @@ export namespace Prisma {
   export type TeknisiMaxAggregateInputType = {
     id?: true
     nama?: true
-    password?: true
     nip?: true
     no_telp?: true
     total_handling?: true
@@ -2469,7 +2472,6 @@ export namespace Prisma {
   export type TeknisiCountAggregateInputType = {
     id?: true
     nama?: true
-    password?: true
     nip?: true
     no_telp?: true
     total_handling?: true
@@ -2566,9 +2568,8 @@ export namespace Prisma {
   export type TeknisiGroupByOutputType = {
     id: number
     nama: string
-    password: string
-    nip: string
-    no_telp: string
+    nip: number
+    no_telp: number
     total_handling: number
     user_id: number
     _count: TeknisiCountAggregateOutputType | null
@@ -2595,7 +2596,6 @@ export namespace Prisma {
   export type TeknisiSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nama?: boolean
-    password?: boolean
     nip?: boolean
     no_telp?: boolean
     total_handling?: boolean
@@ -2608,7 +2608,6 @@ export namespace Prisma {
   export type TeknisiSelectScalar = {
     id?: boolean
     nama?: boolean
-    password?: boolean
     nip?: boolean
     no_telp?: boolean
     total_handling?: boolean
@@ -2632,9 +2631,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nama: string
-      password: string
-      nip: string
-      no_telp: string
+      nip: number
+      no_telp: number
       total_handling: number
       user_id: number
     }, ExtArgs["result"]["teknisi"]>
@@ -3062,9 +3060,8 @@ export namespace Prisma {
   interface TeknisiFieldRefs {
     readonly id: FieldRef<"Teknisi", 'Int'>
     readonly nama: FieldRef<"Teknisi", 'String'>
-    readonly password: FieldRef<"Teknisi", 'String'>
-    readonly nip: FieldRef<"Teknisi", 'String'>
-    readonly no_telp: FieldRef<"Teknisi", 'String'>
+    readonly nip: FieldRef<"Teknisi", 'Int'>
+    readonly no_telp: FieldRef<"Teknisi", 'Int'>
     readonly total_handling: FieldRef<"Teknisi", 'Int'>
     readonly user_id: FieldRef<"Teknisi", 'Int'>
   }
@@ -4540,10 +4537,12 @@ export namespace Prisma {
 
   export type PackageAvgAggregateOutputType = {
     id: number | null
+    jumlah_penjualan: number | null
   }
 
   export type PackageSumAggregateOutputType = {
     id: number | null
+    jumlah_penjualan: number | null
   }
 
   export type PackageMinAggregateOutputType = {
@@ -4551,6 +4550,7 @@ export namespace Prisma {
     nama: string | null
     harga: string | null
     deskripsi: string | null
+    jumlah_penjualan: number | null
   }
 
   export type PackageMaxAggregateOutputType = {
@@ -4558,6 +4558,7 @@ export namespace Prisma {
     nama: string | null
     harga: string | null
     deskripsi: string | null
+    jumlah_penjualan: number | null
   }
 
   export type PackageCountAggregateOutputType = {
@@ -4565,16 +4566,19 @@ export namespace Prisma {
     nama: number
     harga: number
     deskripsi: number
+    jumlah_penjualan: number
     _all: number
   }
 
 
   export type PackageAvgAggregateInputType = {
     id?: true
+    jumlah_penjualan?: true
   }
 
   export type PackageSumAggregateInputType = {
     id?: true
+    jumlah_penjualan?: true
   }
 
   export type PackageMinAggregateInputType = {
@@ -4582,6 +4586,7 @@ export namespace Prisma {
     nama?: true
     harga?: true
     deskripsi?: true
+    jumlah_penjualan?: true
   }
 
   export type PackageMaxAggregateInputType = {
@@ -4589,6 +4594,7 @@ export namespace Prisma {
     nama?: true
     harga?: true
     deskripsi?: true
+    jumlah_penjualan?: true
   }
 
   export type PackageCountAggregateInputType = {
@@ -4596,6 +4602,7 @@ export namespace Prisma {
     nama?: true
     harga?: true
     deskripsi?: true
+    jumlah_penjualan?: true
     _all?: true
   }
 
@@ -4690,6 +4697,7 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan: number
     _count: PackageCountAggregateOutputType | null
     _avg: PackageAvgAggregateOutputType | null
     _sum: PackageSumAggregateOutputType | null
@@ -4716,6 +4724,7 @@ export namespace Prisma {
     nama?: boolean
     harga?: boolean
     deskripsi?: boolean
+    jumlah_penjualan?: boolean
     Orders?: boolean | Package$OrdersArgs<ExtArgs>
     _count?: boolean | PackageCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["package"]>
@@ -4725,6 +4734,7 @@ export namespace Prisma {
     nama?: boolean
     harga?: boolean
     deskripsi?: boolean
+    jumlah_penjualan?: boolean
   }
 
 
@@ -4744,6 +4754,7 @@ export namespace Prisma {
       nama: string
       harga: string
       deskripsi: string
+      jumlah_penjualan: number
     }, ExtArgs["result"]["package"]>
     composites: {}
   }
@@ -5169,6 +5180,7 @@ export namespace Prisma {
     readonly nama: FieldRef<"Package", 'String'>
     readonly harga: FieldRef<"Package", 'String'>
     readonly deskripsi: FieldRef<"Package", 'String'>
+    readonly jumlah_penjualan: FieldRef<"Package", 'Int'>
   }
     
 
@@ -6521,7 +6533,6 @@ export namespace Prisma {
   export const TeknisiScalarFieldEnum: {
     id: 'id',
     nama: 'nama',
-    password: 'password',
     nip: 'nip',
     no_telp: 'no_telp',
     total_handling: 'total_handling',
@@ -6553,7 +6564,8 @@ export namespace Prisma {
     id: 'id',
     nama: 'nama',
     harga: 'harga',
-    deskripsi: 'deskripsi'
+    deskripsi: 'deskripsi',
+    jumlah_penjualan: 'jumlah_penjualan'
   };
 
   export type PackageScalarFieldEnum = (typeof PackageScalarFieldEnum)[keyof typeof PackageScalarFieldEnum]
@@ -6716,9 +6728,8 @@ export namespace Prisma {
     NOT?: TeknisiWhereInput | TeknisiWhereInput[]
     id?: IntFilter<"Teknisi"> | number
     nama?: StringFilter<"Teknisi"> | string
-    password?: StringFilter<"Teknisi"> | string
-    nip?: StringFilter<"Teknisi"> | string
-    no_telp?: StringFilter<"Teknisi"> | string
+    nip?: IntFilter<"Teknisi"> | number
+    no_telp?: IntFilter<"Teknisi"> | number
     total_handling?: IntFilter<"Teknisi"> | number
     user_id?: IntFilter<"Teknisi"> | number
     User?: XOR<UserRelationFilter, UserWhereInput>
@@ -6728,7 +6739,6 @@ export namespace Prisma {
   export type TeknisiOrderByWithRelationInput = {
     id?: SortOrder
     nama?: SortOrder
-    password?: SortOrder
     nip?: SortOrder
     no_telp?: SortOrder
     total_handling?: SortOrder
@@ -6744,9 +6754,8 @@ export namespace Prisma {
     OR?: TeknisiWhereInput[]
     NOT?: TeknisiWhereInput | TeknisiWhereInput[]
     nama?: StringFilter<"Teknisi"> | string
-    password?: StringFilter<"Teknisi"> | string
-    nip?: StringFilter<"Teknisi"> | string
-    no_telp?: StringFilter<"Teknisi"> | string
+    nip?: IntFilter<"Teknisi"> | number
+    no_telp?: IntFilter<"Teknisi"> | number
     total_handling?: IntFilter<"Teknisi"> | number
     User?: XOR<UserRelationFilter, UserWhereInput>
     Orders?: OrderListRelationFilter
@@ -6755,7 +6764,6 @@ export namespace Prisma {
   export type TeknisiOrderByWithAggregationInput = {
     id?: SortOrder
     nama?: SortOrder
-    password?: SortOrder
     nip?: SortOrder
     no_telp?: SortOrder
     total_handling?: SortOrder
@@ -6773,9 +6781,8 @@ export namespace Prisma {
     NOT?: TeknisiScalarWhereWithAggregatesInput | TeknisiScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Teknisi"> | number
     nama?: StringWithAggregatesFilter<"Teknisi"> | string
-    password?: StringWithAggregatesFilter<"Teknisi"> | string
-    nip?: StringWithAggregatesFilter<"Teknisi"> | string
-    no_telp?: StringWithAggregatesFilter<"Teknisi"> | string
+    nip?: IntWithAggregatesFilter<"Teknisi"> | number
+    no_telp?: IntWithAggregatesFilter<"Teknisi"> | number
     total_handling?: IntWithAggregatesFilter<"Teknisi"> | number
     user_id?: IntWithAggregatesFilter<"Teknisi"> | number
   }
@@ -6889,6 +6896,7 @@ export namespace Prisma {
     nama?: StringFilter<"Package"> | string
     harga?: StringFilter<"Package"> | string
     deskripsi?: StringFilter<"Package"> | string
+    jumlah_penjualan?: IntFilter<"Package"> | number
     Orders?: OrderListRelationFilter
   }
 
@@ -6897,6 +6905,7 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
+    jumlah_penjualan?: SortOrder
     Orders?: OrderOrderByRelationAggregateInput
   }
 
@@ -6908,6 +6917,7 @@ export namespace Prisma {
     nama?: StringFilter<"Package"> | string
     harga?: StringFilter<"Package"> | string
     deskripsi?: StringFilter<"Package"> | string
+    jumlah_penjualan?: IntFilter<"Package"> | number
     Orders?: OrderListRelationFilter
   }, "id">
 
@@ -6916,6 +6926,7 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
+    jumlah_penjualan?: SortOrder
     _count?: PackageCountOrderByAggregateInput
     _avg?: PackageAvgOrderByAggregateInput
     _max?: PackageMaxOrderByAggregateInput
@@ -6931,6 +6942,7 @@ export namespace Prisma {
     nama?: StringWithAggregatesFilter<"Package"> | string
     harga?: StringWithAggregatesFilter<"Package"> | string
     deskripsi?: StringWithAggregatesFilter<"Package"> | string
+    jumlah_penjualan?: IntWithAggregatesFilter<"Package"> | number
   }
 
   export type StatusWhereInput = {
@@ -7031,10 +7043,9 @@ export namespace Prisma {
 
   export type TeknisiCreateInput = {
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number
     User: UserCreateNestedOneWithoutTeknisiInput
     Orders?: OrderCreateNestedManyWithoutTeknisiInput
   }
@@ -7042,19 +7053,17 @@ export namespace Prisma {
   export type TeknisiUncheckedCreateInput = {
     id?: number
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number
     user_id: number
     Orders?: OrderUncheckedCreateNestedManyWithoutTeknisiInput
   }
 
   export type TeknisiUpdateInput = {
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
     total_handling?: IntFieldUpdateOperationsInput | number
     User?: UserUpdateOneRequiredWithoutTeknisiNestedInput
     Orders?: OrderUpdateManyWithoutTeknisiNestedInput
@@ -7063,9 +7072,8 @@ export namespace Prisma {
   export type TeknisiUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
     total_handling?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
     Orders?: OrderUncheckedUpdateManyWithoutTeknisiNestedInput
@@ -7074,27 +7082,24 @@ export namespace Prisma {
   export type TeknisiCreateManyInput = {
     id?: number
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number
     user_id: number
   }
 
   export type TeknisiUpdateManyMutationInput = {
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
     total_handling?: IntFieldUpdateOperationsInput | number
   }
 
   export type TeknisiUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
     total_handling?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
   }
@@ -7201,6 +7206,7 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan?: number
     Orders?: OrderCreateNestedManyWithoutPackageInput
   }
 
@@ -7209,6 +7215,7 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan?: number
     Orders?: OrderUncheckedCreateNestedManyWithoutPackageInput
   }
 
@@ -7216,6 +7223,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
     Orders?: OrderUpdateManyWithoutPackageNestedInput
   }
 
@@ -7224,6 +7232,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
     Orders?: OrderUncheckedUpdateManyWithoutPackageNestedInput
   }
 
@@ -7232,12 +7241,14 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan?: number
   }
 
   export type PackageUpdateManyMutationInput = {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
   }
 
   export type PackageUncheckedUpdateManyInput = {
@@ -7245,6 +7256,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
   }
 
   export type StatusCreateInput = {
@@ -7412,7 +7424,6 @@ export namespace Prisma {
   export type TeknisiCountOrderByAggregateInput = {
     id?: SortOrder
     nama?: SortOrder
-    password?: SortOrder
     nip?: SortOrder
     no_telp?: SortOrder
     total_handling?: SortOrder
@@ -7421,6 +7432,8 @@ export namespace Prisma {
 
   export type TeknisiAvgOrderByAggregateInput = {
     id?: SortOrder
+    nip?: SortOrder
+    no_telp?: SortOrder
     total_handling?: SortOrder
     user_id?: SortOrder
   }
@@ -7428,7 +7441,6 @@ export namespace Prisma {
   export type TeknisiMaxOrderByAggregateInput = {
     id?: SortOrder
     nama?: SortOrder
-    password?: SortOrder
     nip?: SortOrder
     no_telp?: SortOrder
     total_handling?: SortOrder
@@ -7438,7 +7450,6 @@ export namespace Prisma {
   export type TeknisiMinOrderByAggregateInput = {
     id?: SortOrder
     nama?: SortOrder
-    password?: SortOrder
     nip?: SortOrder
     no_telp?: SortOrder
     total_handling?: SortOrder
@@ -7447,6 +7458,8 @@ export namespace Prisma {
 
   export type TeknisiSumOrderByAggregateInput = {
     id?: SortOrder
+    nip?: SortOrder
+    no_telp?: SortOrder
     total_handling?: SortOrder
     user_id?: SortOrder
   }
@@ -7592,10 +7605,12 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
+    jumlah_penjualan?: SortOrder
   }
 
   export type PackageAvgOrderByAggregateInput = {
     id?: SortOrder
+    jumlah_penjualan?: SortOrder
   }
 
   export type PackageMaxOrderByAggregateInput = {
@@ -7603,6 +7618,7 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
+    jumlah_penjualan?: SortOrder
   }
 
   export type PackageMinOrderByAggregateInput = {
@@ -7610,10 +7626,12 @@ export namespace Prisma {
     nama?: SortOrder
     harga?: SortOrder
     deskripsi?: SortOrder
+    jumlah_penjualan?: SortOrder
   }
 
   export type PackageSumOrderByAggregateInput = {
     id?: SortOrder
+    jumlah_penjualan?: SortOrder
   }
 
   export type StatusCountOrderByAggregateInput = {
@@ -8096,20 +8114,18 @@ export namespace Prisma {
 
   export type TeknisiCreateWithoutUserInput = {
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number
     Orders?: OrderCreateNestedManyWithoutTeknisiInput
   }
 
   export type TeknisiUncheckedCreateWithoutUserInput = {
     id?: number
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number
     Orders?: OrderUncheckedCreateNestedManyWithoutTeknisiInput
   }
 
@@ -8168,9 +8184,8 @@ export namespace Prisma {
 
   export type TeknisiUpdateWithoutUserInput = {
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
     total_handling?: IntFieldUpdateOperationsInput | number
     Orders?: OrderUpdateManyWithoutTeknisiNestedInput
   }
@@ -8178,9 +8193,8 @@ export namespace Prisma {
   export type TeknisiUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
     total_handling?: IntFieldUpdateOperationsInput | number
     Orders?: OrderUncheckedUpdateManyWithoutTeknisiNestedInput
   }
@@ -8342,6 +8356,7 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan?: number
   }
 
   export type PackageUncheckedCreateWithoutOrdersInput = {
@@ -8349,6 +8364,7 @@ export namespace Prisma {
     nama: string
     harga: string
     deskripsi: string
+    jumlah_penjualan?: number
   }
 
   export type PackageCreateOrConnectWithoutOrdersInput = {
@@ -8372,20 +8388,18 @@ export namespace Prisma {
 
   export type TeknisiCreateWithoutOrdersInput = {
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number
     User: UserCreateNestedOneWithoutTeknisiInput
   }
 
   export type TeknisiUncheckedCreateWithoutOrdersInput = {
     id?: number
     nama: string
-    password: string
-    nip: string
-    no_telp: string
-    total_handling: number
+    nip: number
+    no_telp: number
+    total_handling?: number
     user_id: number
   }
 
@@ -8435,6 +8449,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
   }
 
   export type PackageUncheckedUpdateWithoutOrdersInput = {
@@ -8442,6 +8457,7 @@ export namespace Prisma {
     nama?: StringFieldUpdateOperationsInput | string
     harga?: StringFieldUpdateOperationsInput | string
     deskripsi?: StringFieldUpdateOperationsInput | string
+    jumlah_penjualan?: IntFieldUpdateOperationsInput | number
   }
 
   export type StatusUpsertWithoutOrdersInput = {
@@ -8477,9 +8493,8 @@ export namespace Prisma {
 
   export type TeknisiUpdateWithoutOrdersInput = {
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
     total_handling?: IntFieldUpdateOperationsInput | number
     User?: UserUpdateOneRequiredWithoutTeknisiNestedInput
   }
@@ -8487,9 +8502,8 @@ export namespace Prisma {
   export type TeknisiUncheckedUpdateWithoutOrdersInput = {
     id?: IntFieldUpdateOperationsInput | number
     nama?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    nip?: StringFieldUpdateOperationsInput | string
-    no_telp?: StringFieldUpdateOperationsInput | string
+    nip?: IntFieldUpdateOperationsInput | number
+    no_telp?: IntFieldUpdateOperationsInput | number
     total_handling?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
   }

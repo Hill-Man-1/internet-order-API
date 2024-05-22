@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
-import { registerValidation, loginValidation } from '../validation/userValidation.js';
-import { checkUsernameDao, registerUserDao, loginDao } from '../dao/userDao.js';
+import { registerValidation, loginValidation, teknisiValidation } from '../validation/userValidation.js';
+import { checkUsernameDao, registerUserDao, loginDao, createTeknisiDao, checkTeknisiByUserIdDao } from '../dao/userDao.js';
 import { ErrorHandler } from '../middleware/errorHandler.js';
 import generateToken from '../utils/generateToken.js';
 
@@ -52,4 +52,25 @@ const logoutUserService = () => {
     return { message: "User logged out successfully" };
 }
 
-export { registerUserService, loginUserService, logoutUserService };
+const createTeknisiService = async (teknisiData, userId) => {
+    const { value, error } = teknisiValidation.validate(teknisiData);
+    if (error) {
+        throw new ErrorHandler(400, "1", error.details[0].message);
+    }
+
+    value.user_id = userId;
+
+    delete value.role;
+
+    const existingTeknisi = await checkTeknisiByUserIdDao(userId);
+    if (existingTeknisi) {
+        throw new ErrorHandler(400, "1", "Teknisi with this user ID already exists");
+    }
+
+    const teknisi = await createTeknisiDao(value);
+    
+    return teknisi
+};
+
+
+export { registerUserService, loginUserService, logoutUserService, createTeknisiService };

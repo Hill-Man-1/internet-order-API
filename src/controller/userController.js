@@ -1,4 +1,4 @@
-import { registerUserService, loginUserService,logoutUserService } from '../service/userService.js';
+import { registerUserService, loginUserService,logoutUserService, createTeknisiService } from '../service/userService.js';
 
 const registerUser = async (req, res, next) => {
     try {
@@ -19,11 +19,14 @@ const loginUser = async (req, res, next) => {
         res.cookie('access_token', token, {
             httpOnly: true
         });
-        delete user.password;
         res.status(200).json({
+            message: "User Login successfully",
             code: "0",
             info: "OK",
-            data: user,
+            data: {
+                id: user.id,
+                username: user.username,
+            },
         });
     } catch (err) {
         next(err);
@@ -54,4 +57,24 @@ const logoutUser = async (req, res, next) => {
     }
 }
 
-export { registerUser, loginUser, logoutUser };
+const createTeknisi = async (req, res, next) => {
+    try {
+        const teknisiData = req.body;
+        const userId = req.user.id; 
+        const userRole = req.user.role; 
+
+        teknisiData.role = userRole;
+
+        const teknisi = await createTeknisiService(teknisiData, userId);
+
+        res.status(201).json({
+            code: "0",
+            info: "OK",
+            data: teknisi
+        });
+    } catch (err) {
+        next(err);
+    }
+}
+
+export { registerUser, loginUser, logoutUser, createTeknisi };

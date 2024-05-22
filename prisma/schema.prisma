@@ -21,10 +21,9 @@ model User {
 model Teknisi {
   id             Int    @id @default(autoincrement())
   nama           String
-  password       String
-  nip            String
-  no_telp        String
-  total_handling Int 
+  nip            Int    
+  no_telp        Int    
+  total_handling Int    @default(0)
   user_id        Int    @unique
   User           User   @relation(fields: [user_id], references: [id])
   Orders         Order[]
@@ -41,7 +40,7 @@ model Order {
   reject_reason  String?
   user_id        Int
   package_id     Int
-  status_id      Int     @default(2)
+  status_id      Int     @default(1)
   teknisi_id     Int?   
   User           User    @relation(fields: [user_id], references: [id])
   Package        Package @relation(fields: [package_id], references: [id])
@@ -50,11 +49,12 @@ model Order {
 }
 
 model Package {
-  id        Int     @id @default(autoincrement())
-  nama      String
-  harga     String
-  deskripsi String
-  Orders    Order[]
+  id              Int     @id @default(autoincrement())
+  nama            String
+  harga           String
+  deskripsi       String
+  jumlah_penjualan Int     @default(0)
+  Orders          Order[]
 }
 
 model Status {
