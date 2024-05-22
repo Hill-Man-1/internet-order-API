@@ -24,3 +24,6 @@ app.listen(PORT, () => {
     console.log(`Server listening at http://localhost:${PORT}`);
     console.log(`Documentation API di http://localhost:${PORT}/api-docs`);
 });
+
+
+export default app;
