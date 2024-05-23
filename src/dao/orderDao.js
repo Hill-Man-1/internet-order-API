@@ -55,12 +55,7 @@ const getAllOrderDao = async () => {
     });
 };
 
-const updateOrderDao = async (orderId, updateData) => {
-    const existingOrder = await prisma.order.findUnique({
-        where: { id: orderId },
-        select: { teknisi_id: true }
-    });
-
+const updateOrderDao = async (orderId, updateData, existingTeknisiId) => {
     const updatedOrder = await prisma.order.update({
         where: { id: orderId },
         data: updateData,
@@ -93,10 +88,10 @@ const updateOrderDao = async (orderId, updateData) => {
         }
     });
 
-    if (existingOrder.teknisi_id !== updatedOrder.teknisi_id) {
-        if (existingOrder.teknisi_id) {
+    if (existingTeknisiId !== updatedOrder.teknisi_id) {
+        if (existingTeknisiId) {
             await prisma.teknisi.update({
-                where: { id: existingOrder.teknisi_id },
+                where: { id: existingTeknisiId },
                 data: {
                     total_handling: {
                         decrement: 1
@@ -119,9 +114,10 @@ const updateOrderDao = async (orderId, updateData) => {
     return updatedOrder;
 };
 
+
 const getOrderByIdDao = async (orderId) => {
     return await prisma.order.findUnique({
-        where: { id: orderId },
+        where: { id: parseInt(orderId) }, // Convert orderId to integer
         select: {
             id: true,
             nama: true,
@@ -285,6 +281,13 @@ const updateOrderByCustomerDao = async (orderId, updateData) => {
             jalan: true,
             package_id: true,
             user_id: true,
+            status_id: true,
+            Status:{
+                select: {
+                    id: true,
+                    name: true,
+                }
+            }
         },
     });
 
@@ -300,5 +303,5 @@ export {
     getOrderByTeknisiIdDao, 
     checkPackageExistsDao, 
     getOrderIdByUserIdDao,
-    updateOrderByCustomerDao 
+    updateOrderByCustomerDao
 };

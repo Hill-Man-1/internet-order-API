@@ -35,12 +35,27 @@ const getAllOrderService = async () => {
 
 const updateOrderService = async (orderId, updateData) => {
     try {
-        const updatedOrder = await updateOrderDao(orderId, updateData);
+        if (updateData.status_id !== undefined && updateData.status_id > 6) {
+            throw new ErrorHandler(400, "1", "Status ID cannot be greater than 6");
+        }
+
+        const existingOrder = await getOrderByIdDao(orderId);
+
+        if (updateData.teknisi_id !== undefined && Object.keys(updateData).length === 1) {
+            updateData.status_id = 6;
+        }
+
+        if (updateData.status_id === 5) {
+            updateData.reject_reason = null;
+        }
+
+        const updatedOrder = await updateOrderDao(orderId, updateData, existingOrder.teknisi_id);
         return updatedOrder;
     } catch (error) {
-        throw new ErrorHandler(500, "1", "Failed to update order");
+        throw new ErrorHandler(500, "1", error.message || "Failed to update order");
     }
-};  
+};
+
 
 const getOrderByIdService = async (orderId) => {
     const order = await getOrderByIdDao(orderId);
@@ -49,6 +64,7 @@ const getOrderByIdService = async (orderId) => {
     }
     return order;
 };
+
 
 const getOrderByCustomerIdService = async (userId) => {
     try {

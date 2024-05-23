@@ -44,4 +44,38 @@ const getTeknisiByIdDao = async (id) => {
     });
 };
 
-export { getTeknisiDao, getTeknisiDescDao, getTeknisiByIdDao }
+const updateOrderStatusByTeknisiDao = async (orderId, updateData) => {
+    return await prisma.order.update({
+        where: { id: orderId },
+        data: updateData,
+        select: {
+            id: true,
+            nama: true,
+            email: true,
+            upload_identity: true,
+            kota: true,
+            kecamatan: true,
+            jalan: true,
+            reject_reason: true,
+            package_id: true,
+            user_id: true,
+            status_id: true,
+            teknisi_id: true,
+            Status: {
+                select: {
+                    id: true,
+                    name: true,
+                },
+            },
+            Teknisi: {
+                select: {
+                    id: true,
+                    nama: true,
+                    total_handling: true
+                }
+            }
+        }
+    });
+};
+
+export { getTeknisiDao, getTeknisiDescDao, getTeknisiByIdDao, updateOrderStatusByTeknisiDao }

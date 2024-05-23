@@ -40,7 +40,7 @@ model Order {
   reject_reason  String?
   user_id        Int
   package_id     Int
-  status_id      Int     @default(1)
+  status_id      Int     @default(2)
   teknisi_id     Int?   
   User           User    @relation(fields: [user_id], references: [id])
   Package        Package @relation(fields: [package_id], references: [id])

@@ -43,7 +43,8 @@ const updateOrderValidation = Joi.object({
     reject_reason: Joi.string().optional().messages({
         'string.base': 'Reject reason must be a string',
     }),
-});
+}).or('status_id', 'reject_reason', 'teknisi_id');
+
 
 const updateCustomerOrderValidation = Joi.object({
     nama: Joi.string().max(100).optional().messages({
@@ -66,6 +67,16 @@ const updateCustomerOrderValidation = Joi.object({
     jalan: Joi.string().optional().messages({
         'string.empty': 'Jalan tidak boleh kosong',
     }),
+    status_id: Joi.number().integer().valid(3).messages({
+    }).default(3),
 });
 
-export { orderValidation, updateOrderValidation, updateCustomerOrderValidation };
+const updateTeknisiOrderValidation = Joi.object({
+    status_id: Joi.number().integer().valid(7).required().messages({
+        'number.base': 'Status ID must be an integer',
+        'any.only': 'Status ID can only be 7',
+    }),
+});
+
+
+export { orderValidation, updateOrderValidation, updateCustomerOrderValidation, updateTeknisiOrderValidation };
