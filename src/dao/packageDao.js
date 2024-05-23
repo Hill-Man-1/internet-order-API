@@ -38,4 +38,17 @@ const getAllPackageDescDao = async () => {
     });
 };
 
-export { createPackageDao, getAllPackageDao, getAllPackageDescDao };
+const updatePackageDao = async (packageId, packageData) => {
+    return await prisma.package.update({
+        where: { id: packageId },
+        data: packageData,
+        select: {
+            id: true,
+            nama: true,
+            harga: true,
+            deskripsi: true
+        }
+    });
+};
+
+export { createPackageDao, getAllPackageDao, getAllPackageDescDao, updatePackageDao };

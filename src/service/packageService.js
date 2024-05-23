@@ -1,5 +1,5 @@
-import { createPackageDao, getAllPackageDao, getAllPackageDescDao } from '../dao/packageDao.js';
-import { packageValidation } from '../validation/packageValidation.js';
+import { createPackageDao, getAllPackageDao, getAllPackageDescDao, updatePackageDao } from '../dao/packageDao.js';
+import { packageValidation, updatePackageValidation } from '../validation/packageValidation.js';
 import { ErrorHandler } from '../middleware/errorHandler.js';
 
 const createPackageService = async (packageData) => {
@@ -32,5 +32,14 @@ const getAllPackageDescService = async () => {
     }
 };
 
+const updatePackageService = async (packageId, packageData) => {
+    const { value, error } = updatePackageValidation.validate(packageData);
+    if (error) {
+        throw new ErrorHandler(400, "1", error.details[0].message);
+    }
 
-export { createPackageService, getAllPackageService, getAllPackageDescService };
+    const updatedPackage = await updatePackageDao(packageId, value);
+    return updatedPackage;
+};
+
+export { createPackageService, getAllPackageService, getAllPackageDescService, updatePackageService };

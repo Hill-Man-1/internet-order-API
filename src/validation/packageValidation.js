@@ -18,4 +18,19 @@ const packageValidation = Joi.object({
     })
 });
 
-export { packageValidation };
+const updatePackageValidation = Joi.object({
+    nama: Joi.string().max(100).optional().messages({
+        'string.empty': 'Name Cannot be Empty',
+        'string.max': 'Name Must be at Most 100 Characters',
+    }),
+    harga: Joi.number().integer().optional().messages({
+        'number.integer': 'Harga Must be an Integer',
+        'number.empty': 'Harga Cannot be Empty',
+    }),
+    deskripsi: Joi.string().max(100).optional().messages({
+        'string.empty': 'Deskripsi Cannot be Empty',
+        'string.max': 'Deskripsi Must be at Most 100 Characters',
+    })
+});
+
+export { packageValidation, updatePackageValidation };
