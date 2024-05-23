@@ -8,6 +8,11 @@ const createOrderService = async (userData, userId) => {
         throw new ErrorHandler(400, "1", error.details[0].message);
     }
 
+    const existingOrders = await getOrderByCustomerIdDao(userId);
+    if (existingOrders.length > 0) {
+        throw new ErrorHandler(400, "1", "Customer can only create one order");
+    }
+
     const orderData = {
         nama: value.nama,
         email: value.email,
