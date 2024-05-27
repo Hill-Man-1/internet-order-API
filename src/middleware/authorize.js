@@ -3,22 +3,10 @@ import JWT_KEY from '../config/jwt/jwt.js';
 import { ErrorHandler } from '../middleware/errorHandler.js';
 
 const authorizationAdmin = (req, res, next) => {
-    const token = req.cookies.access_token;
-
-    if (!token) {
-        return next(new ErrorHandler(401, "1", "Unauthorized Access"));
+    if (req.user.role !== 'ADMIN') {
+        return next(new ErrorHandler(403, "1", "Role Must Be ADMIN"));
     }
-
-    try {
-        const decodedToken = jwt.verify(token, JWT_KEY);
-        if (decodedToken.role !== 'ADMIN') {
-            console.log("Role is not ADMIN");
-            return next(new ErrorHandler(403, "1", "Role Must Be ADMIN"));
-        }
-        next();
-    } catch (error) {
-        return next(new ErrorHandler(500, "1", error.message));
-    }
+    next();
 };
 
 const authorizationCustomer = (req, res, next) => {
@@ -45,22 +33,14 @@ const authorizationTeknisi = (req, res, next) => {
     const token = req.cookies.access_token;
 
     if (!token) {
-        console.log("No token provided");
         return next(new ErrorHandler(401, "1", "Unauthorized Access"));
     }
 
     try {
         const decodedToken = jwt.verify(token, JWT_KEY);
         if (decodedToken.role !== 'TEKNISI') {
-            console.log("Role is not TEKNISI");
-            return next(new ErrorHandler(403, "1", "Role Must Be TEKNISI"));
+            return next(new ErrorHandler(403, "1", "Role Must Be Teknisi"));
         }
-
-        if (!decodedToken.teknisiId) {
-            return next(new ErrorHandler(403, "1", "Teknisi ID not found in token"));
-        }
-
-        req.user = decodedToken;
         next();
     } catch (error) {
         return next(new ErrorHandler(500, "1", error.message));

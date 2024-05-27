@@ -11,7 +11,7 @@ const createOrderDao = async (orderData) => {
             kota: true,
             kecamatan: true,
             jalan: true,
-            package_id: true,
+            package_id: true
         },
     });
 };
@@ -23,11 +23,8 @@ const checkPackageExistsDao = async (packageId) => {
     });
 };
 
-const getAllOrderDao = async () => {
+const getAllOrdersDao = async () => {
     return await prisma.order.findMany({
-        orderBy: {
-            status_id: 'desc',
-        },
         select: {
             id: true,
             nama: true,
@@ -39,10 +36,20 @@ const getAllOrderDao = async () => {
             reject_reason: true,
             package_id: true,
             user_id: true,
+            status_id: true,
+            teknisi_id: true,
             Status: {
                 select: {
                     id: true,
                     name: true,
+                },
+            },
+            Package: {
+                select: {
+                    id: true,
+                    nama: true,
+                    harga: true,
+                    deskripsi: true,
                 },
             },
             Teknisi: {
@@ -50,10 +57,20 @@ const getAllOrderDao = async () => {
                     id: true,
                     nama: true,
                 }
-            }
+            },
+            User: {
+                select: {
+                    id: true,
+                    username: true,
+                },
+            },
+        },
+        orderBy: {
+            status_id: 'desc',
         }
     });
 };
+
 
 const updateOrderDao = async (orderId, updateData, existingTeknisiId) => {
     const updatedOrder = await prisma.order.update({
@@ -116,8 +133,11 @@ const updateOrderDao = async (orderId, updateData, existingTeknisiId) => {
 
 
 const getOrderByIdDao = async (orderId) => {
+    if (!orderId) {
+        throw new Error("Order ID is missing");
+    }
     return await prisma.order.findUnique({
-        where: { id: parseInt(orderId) }, // Convert orderId to integer
+        where: { id: parseInt(orderId) },
         select: {
             id: true,
             nama: true,
@@ -156,7 +176,7 @@ const getOrderByIdDao = async (orderId) => {
                     id: true,
                     username: true,
                 },
-            }
+            },
         }
     });
 };
@@ -195,7 +215,9 @@ const getOrderByCustomerIdDao = async (userId) => {
             Teknisi: {
                 select: {
                     id: true,
-                    nama: true
+                    nama: true,
+                    nip: true,
+                    no_telp: true
                 }
             },
             User: {
@@ -296,7 +318,7 @@ const updateOrderByCustomerDao = async (orderId, updateData) => {
 
 export { 
     createOrderDao, 
-    getAllOrderDao, 
+    getAllOrdersDao, 
     updateOrderDao, 
     getOrderByIdDao, 
     getOrderByCustomerIdDao, 

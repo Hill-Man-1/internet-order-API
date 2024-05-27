@@ -1,5 +1,5 @@
 import { orderValidation, updateCustomerOrderValidation } from '../validation/orderValidation.js';
-import { createOrderDao, getAllOrderDao, updateOrderDao, getOrderByIdDao, getOrderByCustomerIdDao, getOrderByTeknisiIdDao, checkPackageExistsDao, updateOrderByCustomerDao, getOrderIdByUserIdDao } from '../dao/orderDao.js';
+import { createOrderDao, getAllOrdersDao, updateOrderDao, getOrderByIdDao, getOrderByCustomerIdDao, getOrderByTeknisiIdDao, checkPackageExistsDao, updateOrderByCustomerDao, getOrderIdByUserIdDao } from '../dao/orderDao.js';
 import { ErrorHandler } from '../middleware/errorHandler.js';
 
 const createOrderService = async (userData, userId) => {
@@ -29,11 +29,12 @@ const createOrderService = async (userData, userId) => {
 };
 
 
-const getAllOrderService = async () => {
+const getAllOrdersService = async () => {
     try {
-        const orders = await getAllOrderDao();
+        const orders = await getAllOrdersDao();
         return orders;
     } catch (error) {
+        console.error("Error fetching orders:", error);
         throw new ErrorHandler(500, "1", "Failed to fetch orders");
     }
 };
@@ -63,6 +64,10 @@ const updateOrderService = async (orderId, updateData) => {
 
 
 const getOrderByIdService = async (orderId) => {
+    if (!orderId) {
+        throw new ErrorHandler(400, "1", "Order ID is required");
+    }
+
     const order = await getOrderByIdDao(orderId);
     if (!order) {
         throw new ErrorHandler(404, "1", "Order not found");
@@ -102,7 +107,7 @@ const updateOrderByCustomerService = async (userId, updateData) => {
 
 export { 
     createOrderService, 
-    getAllOrderService, 
+    getAllOrdersService, 
     updateOrderService, 
     getOrderByIdService, 
     getOrderByCustomerIdService, 

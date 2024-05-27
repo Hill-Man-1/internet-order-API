@@ -18,13 +18,13 @@ const registerValidation = Joi.object({
 
 const loginValidation = Joi.object({
     username: Joi.string().max(100).required().messages({
-        'string.empty': 'Username Cannot be Empty',
-        'string.max': 'Username Must be at Least 100 Characters',
-        'any.required': 'Username is Required',
+        'string.empty': 'Username cannot be empty',
+        'string.max': 'Username must be at least 100 characters',
+        'any.required': 'Username is required',
     }),
     password: Joi.string().max(100).required().messages({
-        'string.empty': 'Password Cannot be Empty',
-        'any.required': 'Password is Required',
+        'string.empty': 'Password cannot be empty',
+        'any.required': 'Password is required',
     }),
 });
 

@@ -1,4 +1,4 @@
-import { registerUserService, loginUserService,logoutUserService, createTeknisiService } from '../service/userService.js';
+import { registerUserService,logoutUserService, createTeknisiService } from '../service/userService.js';
 
 const registerUser = async (req, res, next) => {
     try {
@@ -12,26 +12,6 @@ const registerUser = async (req, res, next) => {
         next(err);
     }
 };
-
-const loginUser = async (req, res, next) => {
-    try {
-        const { user, token } = await loginUserService(req.body);
-        res.cookie('access_token', token, {
-            httpOnly: true
-        });
-        res.status(200).json({
-            message: "User Login successfully",
-            code: "0",
-            info: "OK",
-            data: {
-                id: user.id,
-                username: user.username,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-}
 
 const logoutUser = async (req, res, next) => {
     try {
@@ -63,6 +43,8 @@ const createTeknisi = async (req, res, next) => {
         const userId = req.user.id; 
         const userRole = req.user.role; 
 
+        console.log("User ID:", userId);
+
         teknisiData.role = userRole;
 
         const teknisi = await createTeknisiService(teknisiData, userId);
@@ -77,4 +59,6 @@ const createTeknisi = async (req, res, next) => {
     }
 }
 
-export { registerUser, loginUser, logoutUser, createTeknisi };
+
+
+export { registerUser, logoutUser, createTeknisi };

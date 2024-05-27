@@ -1,4 +1,5 @@
 import { prisma } from '../config/db/db.js';
+import { ErrorHandler } from '../middleware/errorHandler.js';
 
 const registerUserDao = async (user) => {
     return await prisma.user.create({
@@ -18,20 +19,6 @@ const checkUsernameDao = async (username) => {
     });
 };
 
-const loginDao = async (username) => {
-    return await prisma.user.findUnique({
-        where: {
-            username: username
-        },
-        select: {
-            id: true,
-            username: true,
-            password: true,
-            role: true
-        }
-    });  
-};
-
 const createTeknisiDao = async (teknisiData) => {
     return await prisma.teknisi.create({
         data: teknisiData,
@@ -47,9 +34,13 @@ const createTeknisiDao = async (teknisiData) => {
 };
 
 const checkTeknisiByUserIdDao = async (userId) => {
+    if (!userId) {
+        throw new ErrorHandler(400, "1", "User ID is required");
+    }
+
     return await prisma.teknisi.findUnique({
         where: { user_id: userId },
     });
 };
 
-export { registerUserDao, checkUsernameDao, loginDao, createTeknisiDao, checkTeknisiByUserIdDao  };
+export { registerUserDao, checkUsernameDao, createTeknisiDao, checkTeknisiByUserIdDao  };

@@ -1,5 +1,5 @@
 import { ErrorHandler } from '../middleware/errorHandler.js';
-import { createOrderService, getAllOrderService, updateOrderService, getOrderByIdService, getOrderByCustomerIdService, getOrderByTeknisiIdService, updateOrderByCustomerService } from '../service/orderService.js';
+import { createOrderService, updateOrderService, getOrderByIdService, getOrderByCustomerIdService, getOrderByTeknisiIdService, updateOrderByCustomerService, getAllOrdersService } from '../service/orderService.js';
 import { updateOrderValidation, updateCustomerOrderValidation } from '../validation/orderValidation.js';
 import { upload } from '../middleware/fileUpload.js';
 import path from 'path';
@@ -29,9 +29,9 @@ const createOrder = async (req, res, next) => {
     });
 };
 
-const getAllOrder = async (req, res, next) => {
+const getAllOrders = async (req, res, next) => {
     try {
-        const orders = await getAllOrderService();
+        const orders = await getAllOrdersService();
         res.status(200).json({
             code: "0",
             info: "OK",
@@ -41,6 +41,7 @@ const getAllOrder = async (req, res, next) => {
         next(err);
     }
 };
+
 
 const updateOrder = async (req, res, next) => {
     const { orderId } = req.params;
@@ -79,6 +80,10 @@ const updateOrder = async (req, res, next) => {
 const downloadFile = async (req, res, next) => {
     try {
         const { orderId } = req.params;
+        if (!orderId) {
+            return next(new ErrorHandler(400, "1", "Order ID is required"));
+        }
+
         const order = await getOrderByIdService(orderId);
 
         if (!order || !order.upload_identity) {
@@ -121,16 +126,17 @@ const getOrderByCustomerId = async (req, res, next) => {
 };
 
 const getOrderByTeknisiId = async (req, res, next) => {
+    const teknisiId = req.user.teknisiId;
+
+    if (!teknisiId) {
+        return next(new ErrorHandler(400, "1", "Teknisi ID is required"));
+    }
+
     try {
-        const teknisiId = req.user.id;
         const orders = await getOrderByTeknisiIdService(teknisiId);
-        res.status(200).json({
-            code: "0",
-            info: "OK",
-            data: orders
-        });
-    } catch (err) {
-        next(err);
+        res.status(200).json({ code: "0", info: "OK", data: orders });
+    } catch (error) {
+        next(error);
     }
 };
 
@@ -173,7 +179,7 @@ const updateOrderByCustomer = async (req, res, next) => {
 
 export {
     createOrder, 
-    getAllOrder, 
+    getAllOrders, 
     updateOrder, 
     getOrderById, 
     getOrderByCustomerId, 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { registerUser, loginUser, logoutUser, createTeknisi } from '../../../controller/userController.js';
+import { registerUser, logoutUser, createTeknisi } from '../../../controller/userController.js';
 import { login } from '../../../controller/authController.js';
 import limitMiddleware from '../../../middleware/rateLimiter.js';
 import authenticationMiddleware from '../../../middleware/auth.js';
